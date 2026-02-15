@@ -24,7 +24,7 @@ const ComplexCard = React.forwardRef<HTMLIonCardElement, ComplexCardProps>(
         src={complex.image}
         className="h-40 w-full object-cover"
       />
-      <IonCardHeader className="pb-1 pt-3">
+      <IonCardHeader className="px-4 pb-1 pt-4">
         <IonCardTitle className="text-base font-bold text-slate-800">
           {complex.name}
         </IonCardTitle>
@@ -35,7 +35,7 @@ const ComplexCard = React.forwardRef<HTMLIonCardElement, ComplexCardProps>(
         )}
       </IonCardHeader>
       {complex.priceStart && (
-        <IonCardContent className="pt-0 text-sm text-slate-600">
+        <IonCardContent className="px-4 pt-0 pb-4 text-sm text-slate-600">
           {complex.priceStart}
           {complex.metro && ` · ${complex.metro}`}
         </IonCardContent>

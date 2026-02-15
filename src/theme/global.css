@@ -1,6 +1,74 @@
-@import 'tailwindcss';
+/* Tailwind без Preflight, чтобы не переопределять стили @ionic/react (кнопки, FAB и т.д.) */
+@layer theme, base, components, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
 
 /* Базовый фон приложения */
 ion-app {
-  --ion-background-color: #f8fafc;
+  --ion-background-color: var(--color-slate-50);
+}
+
+/* Hero Swiper: один слайд, скруглённые углы */
+.hero-swiper .swiper {
+  overflow: hidden;
+  border-radius: 0.75rem;
+}
+.hero-swiper .swiper-slide {
+  overflow: hidden;
+}
+.hero-swiper .swiper-slide img {
+  border-radius: 0.75rem;
+}
+
+/* Hero Swiper navigation: скрыты на телефоне, видны от sm */
+.hero-swiper .swiper-button-prev,
+.hero-swiper .swiper-button-next {
+  display: none;
+}
+@media (min-width: 640px) {
+  .hero-swiper .swiper-button-prev,
+  .hero-swiper .swiper-button-next {
+    --swiper-navigation-color: #fff;
+    --swiper-navigation-size: 1.25rem;
+    --swiper-navigation-sides-offset: 0.25rem;
+    display: flex;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 9999px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(4px);
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+    transition:
+      background 0.2s,
+      transform 0.1s;
+  }
+  .hero-swiper .swiper-button-prev:hover,
+  .hero-swiper .swiper-button-next:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+  .hero-swiper .swiper-button-prev:active,
+  .hero-swiper .swiper-button-next:active {
+    transform: scale(0.95);
+  }
+  .hero-swiper .swiper-button-prev::after,
+  .hero-swiper .swiper-button-next::after {
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+}
+
+/* Hero Swiper pagination bullets */
+.hero-swiper-bullet {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  transition:
+    background 0.2s,
+    transform 0.2s;
+}
+.hero-swiper-bullet-active {
+  background: var(--color-brand);
+  transform: scale(1.2);
 }

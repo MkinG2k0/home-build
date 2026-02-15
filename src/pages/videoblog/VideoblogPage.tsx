@@ -5,12 +5,12 @@ import {
   IonContent,
   IonIcon,
   IonPage,
-} from '@ionic/react';
-import { playCircle } from 'ionicons/icons';
-import * as React from 'react';
+} from "@ionic/react";
+import { playCircle } from "ionicons/icons";
+import * as React from "react";
 
-import { useAppStore } from '../../app/store';
-import { cn } from '../../shared/lib';
+import { useAppStore } from "../../app/store";
+import { cn } from "../../shared/lib";
 
 const VideoblogPage: React.FC = () => {
   const videos = useAppStore((s) => s.videos);
@@ -21,7 +21,10 @@ const VideoblogPage: React.FC = () => {
         <h1 className="mb-4 text-xl font-bold text-slate-800">Видеоблог</h1>
         <div className="flex flex-col gap-4">
           {videos.map((v) => (
-            <IonCard key={v.id} className="overflow-hidden rounded-xl border-0 shadow-md bg-white">
+            <IonCard
+              key={v.id}
+              className="overflow-hidden rounded-xl border-0 shadow-md bg-white"
+            >
               <div className="relative">
                 <img
                   alt=""
@@ -30,7 +33,7 @@ const VideoblogPage: React.FC = () => {
                 />
                 <div
                   className={cn(
-                    'absolute inset-0 flex items-center justify-center bg-black/30'
+                    "absolute inset-0 flex items-center justify-center bg-black/30",
                   )}
                 >
                   <IonIcon className="text-5xl text-white" icon={playCircle} />

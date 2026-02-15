@@ -1,1 +1,1 @@
-export { AppMenu, type AppMenuProps } from './AppMenu';
+export { AppMenu, MENU_ITEMS, type AppMenuProps } from './AppMenu';

@@ -1,12 +1,14 @@
 import type { Complex, NewsItem, TeamMember, VideoItem } from '../model';
 
-const IMG = {
+export const MOCK_IMAGES = {
   building: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=400',
   news: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=400',
   office: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800',
   person: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200',
   video: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=400',
 } as const;
+
+const IMG = MOCK_IMAGES;
 
 export const mockComplexes: Complex[] = [
   {

@@ -1,8 +1,8 @@
-import { IonCol, IonContent, IonGrid, IonPage, IonRow } from '@ionic/react';
-import * as React from 'react';
+import { IonCol, IonContent, IonGrid, IonPage, IonRow } from "@ionic/react";
+import * as React from "react";
 
-import { useAppStore } from '../../app/store';
-import { ComplexCard } from '../../shared/ui';
+import { useAppStore } from "../../app/store";
+import { ComplexCard } from "../../shared/ui";
 
 const CatalogPage: React.FC = () => {
   const complexes = useAppStore((s) => s.complexes);

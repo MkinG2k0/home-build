@@ -1,21 +1,18 @@
-import {
-  IonContent,
-  IonIcon,
-  IonPage,
-} from '@ionic/react';
-import { paperPlaneOutline, logoVk, logoWhatsapp } from 'ionicons/icons';
-import * as React from 'react';
+import { IonContent, IonIcon, IonPage } from "@ionic/react";
+import { paperPlaneOutline, logoVk, logoWhatsapp } from "ionicons/icons";
+import * as React from "react";
 
-import { useAppStore } from '../../app/store';
-import { TEXTS } from '../../shared/config';
-import { TeamMemberCard } from '../../shared/ui';
-import { cn } from '../../shared/lib';
+import { useAppStore } from "../../app/store";
+import { TEXTS } from "../../shared/config";
+import { TeamMemberCard } from "../../shared/ui";
+import { cn } from "../../shared/lib";
 
-const OFFICE_IMAGE = 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800';
+const OFFICE_IMAGE =
+  "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800";
 const SOCIALS = [
-  { icon: paperPlaneOutline, label: 'Telegram', href: 'https://t.me/etalon' },
-  { icon: logoVk, label: 'VK', href: 'https://vk.com/etalon' },
-  { icon: logoWhatsapp, label: 'WhatsApp', href: 'https://wa.me/78001234567' },
+  { icon: paperPlaneOutline, label: "Telegram", href: "https://t.me/etalon" },
+  { icon: logoVk, label: "VK", href: "https://vk.com/etalon" },
+  { icon: logoWhatsapp, label: "WhatsApp", href: "https://wa.me/78001234567" },
 ] as const;
 
 const AboutPage: React.FC = () => {
@@ -37,7 +34,8 @@ const AboutPage: React.FC = () => {
           <h3 className="mb-2 mt-3 font-bold text-slate-800">{TEXTS.phone}</h3>
           <p className="text-sm text-slate-600">+7 (800) 123-45-67</p>
           <p className="mt-3 text-sm text-slate-600">
-            Ведущее агентство недвижимости. Помогаем с выбором квартир в новостройках от застройщика.
+            Ведущее агентство недвижимости. Помогаем с выбором квартир в
+            новостройках от застройщика.
           </p>
         </section>
         <section className="mb-4">
@@ -47,8 +45,8 @@ const AboutPage: React.FC = () => {
                 key={s.label}
                 aria-label={s.label}
                 className={cn(
-                  'flex h-10 w-10 items-center justify-center rounded-full',
-                  'bg-blue-600 text-white'
+                  "flex h-10 w-10 items-center justify-center rounded-full",
+                  "bg-blue-600 text-white",
                 )}
                 href={s.href}
                 rel="noopener noreferrer"
@@ -60,7 +58,9 @@ const AboutPage: React.FC = () => {
           </div>
         </section>
         <section>
-          <h3 className="mb-4 text-xl font-bold text-slate-800">{TEXTS.our_people}</h3>
+          <h3 className="mb-4 text-xl font-bold text-slate-800">
+            {TEXTS.our_people}
+          </h3>
           <div className="flex gap-3 overflow-x-auto pb-2">
             {team.map((member) => (
               <TeamMemberCard key={member.name} member={member} />

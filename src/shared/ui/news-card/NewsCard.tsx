@@ -25,12 +25,12 @@ const NewsCard = React.forwardRef<HTMLIonCardElement, NewsCardProps>(
           className="h-36 w-full shrink-0 object-cover sm:h-auto sm:w-40"
         />
         <div className="flex flex-1 flex-col">
-          <IonCardHeader className="pb-1 pt-3">
+          <IonCardHeader className="px-4 pb-1 pt-4 sm:px-5">
             <IonCardTitle className="text-base font-bold text-slate-800">
               {item.title}
             </IonCardTitle>
           </IonCardHeader>
-          <IonCardContent className="flex flex-1 flex-col pt-0">
+          <IonCardContent className="flex flex-1 flex-col px-4 pt-0 pb-4 sm:px-5">
             <p className="line-clamp-2 text-sm text-slate-600">{item.description}</p>
             <span className="mt-auto pt-2 text-right text-xs text-slate-500">
               {item.date}

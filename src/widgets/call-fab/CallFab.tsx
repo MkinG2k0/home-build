@@ -1,24 +1,33 @@
-import { IonFab, IonFabButton, IonIcon } from '@ionic/react';
-import { call } from 'ionicons/icons';
-import * as React from 'react';
+import { IonFab, IonFabButton, IonFabList, IonIcon } from "@ionic/react";
+import { call } from "ionicons/icons";
 
-import { cn } from '../../shared/lib';
-
+import { logoWhatsapp } from "ionicons/icons";
 export interface CallFabProps {
   className?: string;
   href?: string;
 }
 
-const CallFab = React.forwardRef<HTMLIonFabElement, CallFabProps>(
-  ({ className, href = 'tel:+78001234567' }, ref) => (
-    <IonFab className={cn(className)} ref={ref} slot="fixed" vertical="bottom" horizontal="end">
-      <IonFabButton color="primary" href={href} aria-label="Позвонить">
-        <IonIcon icon={call} />
+const CallFab = () => {
+  return (
+    <IonFab slot="fixed" vertical="bottom" horizontal="end">
+      <IonFabButton>
+        <IonIcon icon={call}></IonIcon>
       </IonFabButton>
+      <IonFabList side="top">
+        <IonFabButton href={"tel:+78001234567"} aria-label="Позвонить">
+          <IonIcon icon={call}></IonIcon>
+        </IonFabButton>
+        <IonFabButton href={"tel:+78001234567"} aria-label="Позвонить">
+          <IonIcon icon={call}></IonIcon>
+        </IonFabButton>
+        <IonFabButton>
+          <IonIcon icon={logoWhatsapp}></IonIcon>
+        </IonFabButton>
+      </IonFabList>
     </IonFab>
-  )
-);
+  );
+};
 
-CallFab.displayName = 'CallFab';
+CallFab.displayName = "CallFab";
 
 export { CallFab };

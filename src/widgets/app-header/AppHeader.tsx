@@ -1,57 +1,92 @@
 import {
+  IonButton,
   IonButtons,
   IonHeader,
   IonIcon,
   IonMenuButton,
+  IonRouterLink,
   IonTitle,
   IonToolbar,
-} from '@ionic/react';
-import { notificationsOutline, personCircleOutline } from 'ionicons/icons';
-import * as React from 'react';
+} from "@ionic/react";
+import { notificationsOutline, personCircleOutline } from "ionicons/icons";
+import * as React from "react";
+import { useLocation } from "react-router-dom";
 
-import { cn } from '../../shared/lib';
+import { MENU_ITEMS } from "../app-menu";
+import { cn } from "../../shared/lib";
 
 export interface AppHeaderProps {
   className?: string;
 }
 
 const AppHeader = React.forwardRef<HTMLIonHeaderElement, AppHeaderProps>(
-  ({ className }, ref) => (
-    <IonHeader
-      className={cn(
-        'border-b border-slate-200 bg-white shadow-sm',
-        className
-      )}
-      ref={ref}
-    >
-      <IonToolbar className="min-h-[56px]">
-        <IonButtons slot="start">
-          <IonMenuButton autoHide={false} className="text-slate-700" />
-        </IonButtons>
-        <IonTitle className="text-center text-lg font-bold tracking-tight text-blue-600">
-          ETALON INVEST
-        </IonTitle>
-        <IonButtons slot="end">
-          <button
-            type="button"
-            className="ion-activatable ion-focusable flex items-center justify-center rounded-full p-2 text-slate-600 active:bg-slate-100"
-            aria-label="Уведомления"
-          >
-            <IonIcon icon={notificationsOutline} className="text-2xl" />
-          </button>
-          <button
-            type="button"
-            className="ion-activatable ion-focusable flex items-center justify-center rounded-full p-2 text-slate-600 active:bg-slate-100"
-            aria-label="Профиль"
-          >
-            <IonIcon icon={personCircleOutline} className="text-2xl" />
-          </button>
-        </IonButtons>
-      </IonToolbar>
-    </IonHeader>
-  )
+  ({ className }, ref) => {
+    const location = useLocation();
+    return (
+      <IonHeader className={cn("shadow-none!   ", className)} ref={ref}>
+        <IonToolbar className="min-h-[56px] px-2">
+          <IonButtons slot="start">
+            <IonMenuButton
+              autoHide={false}
+              className="text-slate-700 lg:hidden"
+            />
+            <img
+              alt="Эталон Инвест"
+              className="hidden h-14 w-auto lg:block"
+              src="/logo.png"
+            />
+          </IonButtons>
+          <div className="flex flex-1 justify-center">
+            <IonTitle className="flex items-center justify-center lg:hidden">
+              <img
+                alt="Эталон Инвест"
+                className="h-14 w-auto"
+                src="/logo.png"
+              />
+            </IonTitle>
+            <nav
+              aria-label="Основная навигация"
+              className="hidden items-center gap-1 lg:flex"
+            >
+              {MENU_ITEMS.map((item) => {
+                const isActive = location.pathname === item.path;
+                return (
+                  <IonRouterLink
+                    className={cn(
+                      "rounded-lg px-3 py-2 text-sm font-medium transition-colors cursor-pointer",
+                      isActive
+                        ? "bg-blue-50 text-blue-600"
+                        : "text-slate-600 hover:bg-slate-100 hover:text-slate-900",
+                    )}
+                    key={item.path}
+                    routerLink={item.path}
+                  >
+                    {item.title}
+                  </IonRouterLink>
+                );
+              })}
+            </nav>
+          </div>
+          <IonButtons slot="end" className="gap-2">
+            <IonButton type="button" aria-label="Уведомления">
+              <IonIcon
+                icon={notificationsOutline}
+                className="text-3xl text-slate-600"
+              />
+            </IonButton>
+            <IonButton type="button" aria-label="Профиль">
+              <IonIcon
+                icon={personCircleOutline}
+                className="text-3xl text-slate-600"
+              />
+            </IonButton>
+          </IonButtons>
+        </IonToolbar>
+      </IonHeader>
+    );
+  },
 );
 
-AppHeader.displayName = 'AppHeader';
+AppHeader.displayName = "AppHeader";
 
 export { AppHeader };

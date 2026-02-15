@@ -1,14 +1,27 @@
 /* Светлая тема для контента и карточек */
 :root {
-  --ion-background-color: #f8fafc;
+  --color-brand: hsl(221, 83%, 53%);
+  --ion-background-color: var(--color-slate-50);
+
   --ion-text-color: #0f172a;
   --ion-card-background: #ffffff;
   --ion-toolbar-background: #ffffff;
   --ion-toolbar-border-color: #e2e8f0;
 }
 
+ion-toolbar {
+  --background: var(--color-slate-50);
+}
+
 ion-content {
   --background: #f8fafc;
+}
+
+/* Общий скролл страницы: контент растёт, скролл в main */
+#router-outlet ion-page,
+#router-outlet ion-content {
+  height: auto;
+  min-height: 100%;
 }
 
 ion-card {
@@ -43,10 +56,17 @@ ion-menu ion-item.selected {
   font-weight: 600;
 }
 
-ion-fab-button {
-  box-shadow: 0 4px 14px 0 rgb(59 130 246 / 0.4);
-}
-
 ion-fab-button::part(native):active {
   transform: scale(0.96);
+}
+
+ion-fab-list ion-fab-button .ion-fab-button-label {
+  margin-inline-start: 8px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+ion-fab {
+  margin-bottom: 20px;
+  margin-right: 20px;
 }

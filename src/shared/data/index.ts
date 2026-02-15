@@ -1,4 +1,5 @@
 export {
+  MOCK_IMAGES,
   mockComplexes,
   mockNews,
   mockTeam,
