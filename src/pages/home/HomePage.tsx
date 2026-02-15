@@ -19,15 +19,17 @@ const HomePage: React.FC = () => {
 
   return (
     <PageWithRefresher onRefresh={handleRefresh}>
-      <HeroSwiper className="mb-6 sm:mb-8" />
+      <div className="flex flex-col gap-4">
+        <HeroSwiper />
 
-      <ComplexesSwiper className="mb-8 sm:mb-8" complexes={complexes} />
+        <ComplexesSwiper complexes={complexes} />
 
-      <HomeNewsSection className="pb-8" news={news} />
+        <HomeNewsSection news={news} />
 
-      <VideoSection className="mb-8 sm:mb-8" videos={videos} />
+        <VideoSection videos={videos} />
 
-      <ContactForm className="pb-8" />
+        <ContactForm />
+      </div>
     </PageWithRefresher>
   );
 };
