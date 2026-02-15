@@ -18,7 +18,7 @@ const HomeNewsSection = React.forwardRef<HTMLElement, HomeNewsSectionProps>(
           {TEXTS.news}
         </h2>
       </IonText>
-      <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-2">
+      <div className="grid grid-cols-1 gap-2 sm:grid-cols-1 lg:grid-cols-2">
         {news.slice(0, 3).map((item) => (
           <NewsCard key={item.id} item={item} />
         ))}
