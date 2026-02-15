@@ -18,7 +18,7 @@ const NewsCard = React.forwardRef<HTMLIonCardElement, NewsCardProps>(
   ({ className, item }, ref) => (
     <IonCard
       className={cn(
-        "overflow-hidden rounded-xl border-0 shadow-md bg-white",
+        "overflow-hidden rounded-xl border-0 shadow-md bg-white m-0!",
         className,
       )}
       ref={ref}

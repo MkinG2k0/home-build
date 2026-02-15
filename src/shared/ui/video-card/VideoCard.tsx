@@ -14,7 +14,7 @@ const VideoCard = React.forwardRef<HTMLIonCardElement, VideoCardProps>(
   ({ className, item, onPress }, ref) => (
     <IonCard
       className={cn(
-        "min-w-[260px] cursor-pointer overflow-hidden rounded-xl border-0 shadow-md bg-white",
+        "min-w-[260px] cursor-pointer overflow-hidden rounded-xl border-0 shadow-md bg-white m-0!",
         "transition-opacity active:opacity-90",
         className,
       )}

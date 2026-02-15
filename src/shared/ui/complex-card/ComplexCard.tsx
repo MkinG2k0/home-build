@@ -19,7 +19,7 @@ const ComplexCard = React.forwardRef<HTMLIonCardElement, ComplexCardProps>(
   ({ className, complex }, ref) => (
     <IonCard
       className={cn(
-        "min-w-[260px] overflow-hidden rounded-xl border-0 shadow-md",
+        "min-w-[260px] overflow-hidden rounded-xl border-0 shadow-md m-0!",
         "bg-white",
         className,
       )}

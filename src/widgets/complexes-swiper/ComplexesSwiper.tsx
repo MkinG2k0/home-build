@@ -20,7 +20,7 @@ const ComplexesSwiper = React.forwardRef<
 >(({ className, complexes }, ref) => (
   <section className={className} ref={ref}>
     <IonText>
-      <h2 className="mb-6 text-4xl! font-bold text-slate-800">
+      <h2 className="mb-6 text-3xl! font-bold text-slate-800">
         {TEXTS.housing_complexes}
       </h2>
     </IonText>
@@ -37,7 +37,7 @@ const ComplexesSwiper = React.forwardRef<
       resistance
       resistanceRatio={0.85}
       slidesPerView={1.15}
-      spaceBetween={2}
+      spaceBetween={14}
       touchEventsTarget="container"
     >
       {complexes.map((c) => (

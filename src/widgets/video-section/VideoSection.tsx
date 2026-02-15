@@ -45,7 +45,7 @@ const VideoSection = React.forwardRef<
       ref={ref}
     >
       <IonText>
-        <h2 className="mb-6 text-4xl! font-bold text-slate-800">
+        <h2 className="mb-6 text-3xl! font-bold text-slate-800">
           {TEXTS.video}
         </h2>
       </IonText>
@@ -63,7 +63,7 @@ const VideoSection = React.forwardRef<
         resistance
         resistanceRatio={0.85}
         slidesPerView={1.15}
-        spaceBetween={2}
+        spaceBetween={14}
         touchEventsTarget="container"
       >
         {videos.map((v) => (
