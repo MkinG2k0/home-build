@@ -38,9 +38,6 @@ ion-app {
 .hero-swiper .swiper-slide {
   overflow: hidden;
 }
-.hero-swiper .swiper-slide img {
-  border-radius: 0.75rem;
-}
 
 /* Hero Swiper navigation: скрыты на телефоне, видны от sm */
 .hero-swiper .swiper-button-prev,
@@ -109,7 +106,9 @@ ion-app {
   margin: 0;
   border-radius: 9999px;
   padding: 10px;
-  transition: background 0.2s, transform 0.1s;
+  transition:
+    background 0.2s,
+    transform 0.1s;
 }
 .video-section .swiper-button-next {
   transform: translateX(calc(-50% + 2rem));

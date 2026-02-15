@@ -19,38 +19,37 @@ export interface PageWithRefresherProps {
   onRefresh?: (event: RefresherEvent) => void | Promise<void>;
 }
 
-const PageWithRefresher = React.forwardRef<
-  HTMLIonPageElement,
-  PageWithRefresherProps
->(function PageWithRefresher(
-  { children, className, contentClassName, onRefresh },
-  ref
-) {
-  const handleIonRefresh = React.useCallback(
-    (event: CustomEvent<{ complete(): void }>) => {
-      const result = onRefresh?.(event as unknown as RefresherEvent);
-      if (result instanceof Promise) {
-        result.finally(() => event.detail.complete());
-      } else {
-        event.detail.complete();
-      }
-    },
-    [onRefresh]
-  );
+const PageWithRefresher = React.forwardRef<HTMLElement, PageWithRefresherProps>(
+  function PageWithRefresher(
+    { children, className, contentClassName, onRefresh },
+    ref,
+  ) {
+    const handleIonRefresh = React.useCallback(
+      (event: CustomEvent<{ complete(): void }>) => {
+        const result = onRefresh?.(event as unknown as RefresherEvent);
+        if (result instanceof Promise) {
+          result.finally(() => event.detail.complete());
+        } else {
+          event.detail.complete();
+        }
+      },
+      [onRefresh],
+    );
 
-  return (
-    <IonPage className={className} ref={ref}>
-      <IonContent className={cn("ion-padding", contentClassName)}>
-        {onRefresh && (
-          <IonRefresher slot="fixed" onIonRefresh={handleIonRefresh}>
-            <IonRefresherContent />
-          </IonRefresher>
-        )}
-        {children}
-      </IonContent>
-    </IonPage>
-  );
-});
+    return (
+      <IonPage className={className} ref={ref}>
+        <IonContent className={cn("ion-padding", contentClassName)}>
+          {onRefresh && (
+            <IonRefresher slot="fixed" onIonRefresh={handleIonRefresh}>
+              <IonRefresherContent />
+            </IonRefresher>
+          )}
+          {children}
+        </IonContent>
+      </IonPage>
+    );
+  },
+);
 
 PageWithRefresher.displayName = "PageWithRefresher";
 
