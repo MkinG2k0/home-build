@@ -13,7 +13,7 @@ const HomePage: React.FC = () => {
 
   return (
     <IonPage>
-      <IonContent className="ion-padding">
+      <IonContent>
         <HeroSwiper className="mb-6 sm:mb-8" />
 
         <ComplexesSwiper className="mb-8 sm:mb-8" complexes={complexes} />
