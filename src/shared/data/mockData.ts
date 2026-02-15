@@ -6,6 +6,10 @@ export const MOCK_IMAGES = {
   office: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800',
   person: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200',
   video: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=400',
+  videoConstruction: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400',
+  videoInterior: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400',
+  videoInterior2: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400',
+  videoWorker: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=400',
 } as const;
 
 const IMG = MOCK_IMAGES;
@@ -71,7 +75,9 @@ export const mockTeam: TeamMember[] = [
 ];
 
 export const mockVideos: VideoItem[] = [
-  { id: '1', thumbnailUrl: IMG.video, title: 'Обзор комплекса «Новый горизонт»' },
-  { id: '2', thumbnailUrl: IMG.video, title: 'Интервью с застройщиком' },
-  { id: '3', thumbnailUrl: IMG.video, title: 'Экскурсия по готовым квартирам' },
+  { id: '1', thumbnailUrl: IMG.videoConstruction, title: 'Премиальный дом' },
+  { id: '2', thumbnailUrl: IMG.videoWorker, title: 'Собираем армирование' },
+  { id: '3', thumbnailUrl: IMG.videoInterior, title: 'Фойе в 1 и 2 премиальном блоке' },
+  { id: '4', thumbnailUrl: IMG.videoInterior2, title: 'Евро-двушка 46,35 квадратов' },
+  { id: '5', thumbnailUrl: IMG.video, title: 'Заливаем бетон в блоке' },
 ];

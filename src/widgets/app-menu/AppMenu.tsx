@@ -40,8 +40,8 @@ const AppMenu: React.FC<AppMenuProps> = ({ contentId }) => {
     <IonMenu contentId={contentId} type="overlay">
       <IonContent>
         <IonList className="py-4 h-full">
-          <IonListHeader className="px-4 py-4 text-base font-bold tracking-tight ">
-            ETALON INVEST
+          <IonListHeader className="px-4 py-4">
+            <img alt="Эталон Инвест" className="h-12 w-auto" src="/logo.png" />
           </IonListHeader>
           {MENU_ITEMS.map((item) => (
             <IonMenuToggle key={item.path} autoHide={false}>

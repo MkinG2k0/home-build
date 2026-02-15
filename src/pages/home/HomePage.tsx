@@ -1,35 +1,34 @@
-import { IonContent, IonPage } from "@ionic/react";
 import * as React from "react";
 
 import { useAppStore } from "../../app/store";
-import { TEXTS } from "../../shared/config";
-import { NewsCard } from "../../shared/ui";
+import { PageWithRefresher } from "../../shared/ui";
 import { ComplexesSwiper } from "../../widgets/complexes-swiper";
+import { ContactForm } from "../../widgets/contact-form";
 import { HeroSwiper } from "../../widgets/hero-swiper";
+import { HomeNewsSection } from "../../widgets/home-news-section";
+import { VideoSection } from "../../widgets/video-section";
 
 const HomePage: React.FC = () => {
   const complexes = useAppStore((s) => s.complexes);
   const news = useAppStore((s) => s.news);
+  const videos = useAppStore((s) => s.videos);
+
+  const handleRefresh = React.useCallback(() => {
+    // TODO: перезагрузка данных страницы
+  }, []);
 
   return (
-    <IonPage>
-      <IonContent>
-        <HeroSwiper className="mb-6 sm:mb-8" />
+    <PageWithRefresher onRefresh={handleRefresh}>
+      <HeroSwiper className="mb-6 sm:mb-8" />
 
-        <ComplexesSwiper className="mb-8 sm:mb-8" complexes={complexes} />
+      <ComplexesSwiper className="mb-8 sm:mb-8" complexes={complexes} />
 
-        <section className="pb-8">
-          <h3 className="mb-6 text-xl font-bold text-slate-800">
-            {TEXTS.news}
-          </h3>
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {news.slice(0, 3).map((item) => (
-              <NewsCard key={item.id} item={item} />
-            ))}
-          </div>
-        </section>
-      </IonContent>
-    </IonPage>
+      <HomeNewsSection className="pb-8" news={news} />
+
+      <VideoSection className="mb-8 sm:mb-8" videos={videos} />
+
+      <ContactForm className="pb-8" />
+    </PageWithRefresher>
   );
 };
 

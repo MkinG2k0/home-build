@@ -1,8 +1,14 @@
-import { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle } from '@ionic/react';
-import * as React from 'react';
+import {
+  IonCard,
+  IonCardContent,
+  IonCardHeader,
+  IonCardSubtitle,
+  IonCardTitle,
+} from "@ionic/react";
+import * as React from "react";
 
-import { cn } from '../../lib';
-import type { Complex } from '../../model';
+import { cn } from "../../lib";
+import type { Complex } from "../../model";
 
 export interface ComplexCardProps {
   className?: string;
@@ -13,9 +19,9 @@ const ComplexCard = React.forwardRef<HTMLIonCardElement, ComplexCardProps>(
   ({ className, complex }, ref) => (
     <IonCard
       className={cn(
-        'min-w-[260px] overflow-hidden rounded-xl border-0 shadow-md',
-        'bg-white',
-        className
+        "min-w-[260px] overflow-hidden rounded-xl border-0 shadow-md",
+        "bg-white",
+        className,
       )}
       ref={ref}
     >
@@ -41,9 +47,9 @@ const ComplexCard = React.forwardRef<HTMLIonCardElement, ComplexCardProps>(
         </IonCardContent>
       )}
     </IonCard>
-  )
+  ),
 );
 
-ComplexCard.displayName = 'ComplexCard';
+ComplexCard.displayName = "ComplexCard";
 
 export { ComplexCard };

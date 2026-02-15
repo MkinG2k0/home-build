@@ -1,8 +1,13 @@
-import { IonCard, IonCardContent, IonCardHeader, IonCardTitle } from '@ionic/react';
-import * as React from 'react';
+import {
+  IonCard,
+  IonCardContent,
+  IonCardHeader,
+  IonCardTitle,
+} from "@ionic/react";
+import * as React from "react";
 
-import { cn } from '../../lib';
-import type { NewsItem } from '../../model';
+import { cn } from "../../lib";
+import type { NewsItem } from "../../model";
 
 export interface NewsCardProps {
   className?: string;
@@ -13,8 +18,8 @@ const NewsCard = React.forwardRef<HTMLIonCardElement, NewsCardProps>(
   ({ className, item }, ref) => (
     <IonCard
       className={cn(
-        'overflow-hidden rounded-xl border-0 shadow-md bg-white',
-        className
+        "overflow-hidden rounded-xl border-0 shadow-md bg-white",
+        className,
       )}
       ref={ref}
     >
@@ -26,12 +31,14 @@ const NewsCard = React.forwardRef<HTMLIonCardElement, NewsCardProps>(
         />
         <div className="flex flex-1 flex-col">
           <IonCardHeader className="px-4 pb-1 pt-4 sm:px-5">
-            <IonCardTitle className="text-base font-bold text-slate-800">
+            <IonCardTitle className="text-xl font-bold text-slate-800">
               {item.title}
             </IonCardTitle>
           </IonCardHeader>
           <IonCardContent className="flex flex-1 flex-col px-4 pt-0 pb-4 sm:px-5">
-            <p className="line-clamp-2 text-sm text-slate-600">{item.description}</p>
+            <p className="line-clamp-2 text-sm text-slate-600">
+              {item.description}
+            </p>
             <span className="mt-auto pt-2 text-right text-xs text-slate-500">
               {item.date}
             </span>
@@ -39,9 +46,9 @@ const NewsCard = React.forwardRef<HTMLIonCardElement, NewsCardProps>(
         </div>
       </div>
     </IonCard>
-  )
+  ),
 );
 
-NewsCard.displayName = 'NewsCard';
+NewsCard.displayName = "NewsCard";
 
 export { NewsCard };

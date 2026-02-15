@@ -24,9 +24,9 @@ export const AppShell: React.FC = () => (
   <IonSplitPane contentId={MAIN_ID} when={false}>
     <AppMenu contentId={MAIN_ID} />
     <div className="flex flex-1 flex-col bg-slate-50" id={MAIN_ID}>
-      <div className="mx-auto flex min-h-0 w-full max-w-7xl flex-1 flex-col">
+      <div className="mx-auto flex min-h-0 w-full max-w-7xl flex-1 flex-col gap-2">
         <AppHeader />
-        <main className="relative flex-1 overflow-auto bg-slate-50 px-4 sm:px-6 lg:px-8">
+        <main className="main-scroll relative flex-1 overflow-auto bg-slate-50">
           <IonRouterOutlet id="router-outlet">
             <Route component={HomePage} exact path="/" />
             <Route component={CatalogPage} path="/catalog" />
