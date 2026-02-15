@@ -1,6 +1,6 @@
 import { IonRouterOutlet, IonSplitPane } from '@ionic/react'
 import * as React from 'react'
-import { Route } from 'react-router-dom'
+import { Route as BaseRoute } from 'react-router-dom'
 
 import { AppHeader } from '../widgets/app-header'
 import { AppMenu } from '../widgets/app-menu'
@@ -10,7 +10,14 @@ import { CatalogPage } from '../pages/catalog'
 import { HomePage } from '../pages/home'
 import { NewsPage } from '../pages/news'
 import { VideoblogPage } from '../pages/videoblog'
-	
+
+type RouteProps = {
+  component: React.ComponentType
+  exact?: boolean
+  path: string
+}
+const Route = BaseRoute as React.ComponentType<RouteProps>
+
 const MAIN_ID = 'main'
 
 export const AppShell: React.FC = () => (
