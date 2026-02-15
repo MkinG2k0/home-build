@@ -1,0 +1,6 @@
+@import 'tailwindcss';
+
+/* Базовый фон приложения */
+ion-app {
+  --ion-background-color: #f8fafc;
+}

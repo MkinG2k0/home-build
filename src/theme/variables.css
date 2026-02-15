@@ -1,2 +1,52 @@
-/* For information on how to create your own theme, please refer to:
-http://ionicframework.com/docs/theming/ */
+/* Светлая тема для контента и карточек */
+:root {
+  --ion-background-color: #f8fafc;
+  --ion-text-color: #0f172a;
+  --ion-card-background: #ffffff;
+  --ion-toolbar-background: #ffffff;
+  --ion-toolbar-border-color: #e2e8f0;
+}
+
+ion-content {
+  --background: #f8fafc;
+}
+
+ion-card {
+  --background: #ffffff;
+  box-shadow:
+    0 1px 3px 0 rgb(0 0 0 / 0.08),
+    0 1px 2px -1px rgb(0 0 0 / 0.08);
+}
+
+ion-item {
+  --background: transparent;
+  --color: #0f172a;
+}
+
+ion-list-header {
+  --background: #f1f5f9;
+  --color: #475569;
+  font-weight: 600;
+}
+
+ion-menu ion-content {
+  --background: #ffffff;
+}
+
+ion-menu ion-list {
+  background: #ffffff;
+}
+
+ion-menu ion-item.selected {
+  --background: #eff6ff;
+  --color: #1d4ed8;
+  font-weight: 600;
+}
+
+ion-fab-button {
+  box-shadow: 0 4px 14px 0 rgb(59 130 246 / 0.4);
+}
+
+ion-fab-button::part(native):active {
+  transform: scale(0.96);
+}
