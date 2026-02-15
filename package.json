@@ -9,12 +9,19 @@
     "preview": "vite preview",
     "test.e2e": "cypress run",
     "test.unit": "vitest",
-    "lint": "eslint"
+    "lint": "eslint",
+    "build:all": "npm run build && npm run export && npx cap copy",
+    "sync": "npx cap sync",
+    "android": "npx cap run android",
+    "ios": "npx cap run ios"
   },
   "dependencies": {
+    "@capacitor/android": "^8.1.0",
     "@capacitor/app": "8.0.1",
     "@capacitor/core": "8.1.0",
+    "@capacitor/geolocation": "^8.1.0",
     "@capacitor/haptics": "8.0.0",
+    "@capacitor/ios": "^8.1.0",
     "@capacitor/keyboard": "8.0.0",
     "@capacitor/status-bar": "8.0.1",
     "@ionic/react": "^8.5.0",
