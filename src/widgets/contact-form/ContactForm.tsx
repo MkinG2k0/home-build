@@ -38,15 +38,15 @@ const ContactForm = React.forwardRef<HTMLDivElement, ContactFormProps>(
     return (
       <div
         className={cn(
-          "contact-form-card relative mx-auto max-w-xl overflow-hidden rounded-2xl bg-white p-6 shadow-lg sm:p-8",
+          "contact-form-card relative mx-auto max-w-xl overflow-hidden rounded-2xl bg-white p-4 shadow-lg sm:p-8",
           className,
         )}
         ref={ref}
       >
-        <h2 className="mb-2 text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+        <h2 className="mb-2 text-2xl font-bold tracking-tight  text-slate-900 sm:text-3xl">
           {TEXTS.contact_form_title}
         </h2>
-        <p className="mb-6 text-base flex gap-2 text-slate-600">
+        <p className="mb-6 text-base flex gap-1 text-slate-600 text-center items-center justify-center flex-wrap">
           {TEXTS.contact_form_or_call}
 
           <a
@@ -101,14 +101,14 @@ const ContactForm = React.forwardRef<HTMLDivElement, ContactFormProps>(
             </div>
           </div>
 
-          <div className="flex flex-col gap-2 items-center">
+          <div className="flex flex-col gap-2 items-center ">
             <IonButton size="large" type="submit" className="w-full">
               {TEXTS.contact_form_submit}
             </IonButton>
             <p className="text-sm leading-relaxed text-slate-500 text-center m-0">
               {TEXTS.contact_form_privacy_text}{" "}
               <a
-                className="text-[#2563eb] underline  decoration-[#2563eb]/80 hover:decoration-[#2563eb]"
+                className="whitespace-nowrap text-[#2563eb] underline decoration-[#2563eb]/80 hover:decoration-[#2563eb]"
                 href="#"
               >
                 {TEXTS.contact_form_privacy_link}

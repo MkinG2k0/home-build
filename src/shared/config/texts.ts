@@ -5,7 +5,7 @@ export const TEXTS = {
   catalog: "Каталог",
   close: "Закрыть",
   contact_form_full_name_placeholder: "Имя и фамилия",
-  contact_form_or_call: "Или позвоните нам — ",
+  contact_form_or_call: "Или позвоните нам ",
   contact_form_phone_placeholder: "Номер телефона",
   contact_form_privacy_link: "Политики конфиденциальности",
   contact_form_privacy_text: "Нажимая на кнопку вы соглашаетесь с условиями",
