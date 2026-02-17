@@ -11,7 +11,6 @@ import { close } from "ionicons/icons";
 import * as React from "react";
 
 import { TEXTS } from "../../config";
-import { cn } from "../../lib";
 import type { VideoItem } from "../../model";
 
 export interface VideoModalProps {
