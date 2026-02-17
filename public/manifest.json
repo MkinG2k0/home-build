@@ -1,21 +1,55 @@
 {
-  "short_name": "Ionic App",
-  "name": "My Ionic App",
+  "id": "com.etalon.invest",
+  "short_name": "Эталон Инвест",
+  "name": "Эталон Инвест - Агентство недвижимости",
+  "description": "Ведущее агентство недвижимости. Помогаем с выбором квартир в новостройках от застройщика.",
   "icons": [
     {
-      "src": "assets/icon/favicon.png",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
     },
     {
-      "src": "assets/icon/icon.png",
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
       "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icon-512x512.png",
       "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
       "purpose": "maskable"
     }
   ],
-  "start_url": ".",
+  "screenshots": [
+    {
+      "src": "/screen1.png",
+      "sizes": "1371x1336",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Главная страница"
+    },
+    {
+      "src": "/screen1.png",
+      "sizes": "1371x1336",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Главная страница"
+    }
+  ],
+  "start_url": "/",
   "display": "standalone",
-  "theme_color": "#ffffff",
-  "background_color": "#ffffff"
+  "orientation": "portrait",
+  "theme_color": "#2563eb",
+  "background_color": "#f8fafc",
+  "scope": "/",
+  "lang": "ru"
 }
