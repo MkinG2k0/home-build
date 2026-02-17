@@ -43,7 +43,7 @@ const ContactForm = React.forwardRef<HTMLDivElement, ContactFormProps>(
         )}
         ref={ref}
       >
-        <h2 className="mb-2 text-2xl font-bold tracking-tight m-0!  text-slate-900 sm:text-3xl">
+        <h2 className="mb-2 text-2xl font-bold tracking-tight sm:m-0!  text-slate-900 sm:text-3xl">
           {TEXTS.contact_form_title}
         </h2>
         <p className="mb-6 text-base flex gap-1 text-slate-600 text-center items-center justify-center flex-wrap">

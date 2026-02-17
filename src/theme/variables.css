@@ -63,10 +63,6 @@ ion-menu ion-item.selected {
   font-weight: 600;
 }
 
-ion-fab-button::part(native):active {
-  transform: scale(0.96);
-}
-
 ion-fab-list ion-fab-button .ion-fab-button-label {
   margin-inline-start: 8px;
   font-size: 12px;
@@ -76,4 +72,13 @@ ion-fab-list ion-fab-button .ion-fab-button-label {
 ion-fab {
   margin-bottom: 20px;
   margin-right: 20px;
+}
+
+ion-fab-list {
+}
+
+@media (max-width: 640px) {
+  ion-fab-list {
+    margin-bottom: 80px;
+  }
 }

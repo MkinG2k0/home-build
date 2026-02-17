@@ -9,19 +9,32 @@ export interface CallFabProps {
 
 const CallFab = () => {
   return (
-    <IonFab slot="fixed" vertical="bottom" horizontal="end">
+    <IonFab
+      slot="fixed"
+      vertical="bottom"
+      horizontal="end"
+      className="scale-125 sm:scale-100"
+    >
       <IonFabButton>
         <IonIcon icon={call}></IonIcon>
       </IonFabButton>
-      <IonFabList side="top">
-        <IonFabButton href={"tel:+78001234567"} aria-label="Позвонить">
+      <IonFabList side="top" className="scale-125 sm:scale-100">
+        <IonFabButton
+          color={"secondary"}
+          href={"tel:+78001234567"}
+          aria-label="Позвонить"
+        >
           <IonIcon icon={call}></IonIcon>
         </IonFabButton>
-        <IonFabButton href={"tel:+78001234567"} aria-label="Позвонить">
+        <IonFabButton
+          color={"secondary"}
+          href={"tel:+78001234567"}
+          aria-label="Позвонить"
+        >
           <IonIcon icon={call}></IonIcon>
         </IonFabButton>
-        <IonFabButton>
-          <IonIcon icon={logoWhatsapp}></IonIcon>
+        <IonFabButton color={"success"}>
+          <IonIcon icon={logoWhatsapp} className="text-white"></IonIcon>
         </IonFabButton>
       </IonFabList>
     </IonFab>
