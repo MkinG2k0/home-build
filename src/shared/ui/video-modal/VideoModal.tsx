@@ -25,11 +25,7 @@ const VideoModal: React.FC<VideoModalProps> = ({
   onDidDismiss,
   video,
 }) => (
-  <IonModal
-    className="video-modal"
-    isOpen={isOpen}
-    onDidDismiss={onDidDismiss}
-  >
+  <IonModal className="video-modal" isOpen={isOpen} onDidDismiss={onDidDismiss}>
     <IonHeader>
       <IonToolbar>
         <IonTitle>{video?.title ?? ""}</IonTitle>
@@ -40,26 +36,14 @@ const VideoModal: React.FC<VideoModalProps> = ({
         </IonButtons>
       </IonToolbar>
     </IonHeader>
-    <div className="p-4">
+    <div className="">
       {video && (
-        <div className="relative w-full overflow-hidden rounded-xl">
+        <div className="relative w-full overflow-hidden">
           <img
             alt={video.title}
             className="aspect-video w-full object-cover"
             src={video.thumbnailUrl}
           />
-          <div
-            className={cn(
-              "absolute inset-0 flex items-center justify-center bg-black/30",
-            )}
-          >
-            <div
-              className="flex size-14 items-center justify-center rounded-full bg-white/70 backdrop-blur-sm"
-              role="presentation"
-            >
-              <div className="ml-1 h-0 w-0 border-y-8 border-l-14 border-y-transparent border-l-slate-800" />
-            </div>
-          </div>
         </div>
       )}
     </div>
