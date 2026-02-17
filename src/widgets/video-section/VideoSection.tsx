@@ -11,7 +11,7 @@ import {
 } from "@ionic/react";
 import { close } from "ionicons/icons";
 import * as React from "react";
-import { FreeMode, Navigation } from "swiper/modules";
+import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import { TEXTS } from "../../shared/config";
@@ -30,7 +30,7 @@ export interface VideoSectionProps {
 const VideoSection = React.forwardRef<
   HTMLTableSectionElement,
   VideoSectionProps
->(({ className, videos }, ref) => {
+>(({ videos }) => {
   const [selectedVideo, setSelectedVideo] = React.useState<VideoItem | null>(
     null,
   );
@@ -40,29 +40,23 @@ const VideoSection = React.forwardRef<
   }, []);
 
   return (
-    <section
-      className={cn("video-section pb-14 overflow-hidden", className)}
-      ref={ref}
-    >
+    <section className="video-section">
       <IonText>
-        <h2 className="mb-6 text-3xl! font-bold text-slate-800">
+        <h2 className="mb-6 text-3xl!  font-bold text-slate-800">
           {TEXTS.video}
         </h2>
       </IonText>
       <Swiper
         breakpoints={{
-          320: { slidesPerView: 1.15 },
-          640: { slidesPerView: 2 },
-          1024: { slidesPerView: 3 },
+          320: { slidesPerView: 2.5 },
+          640: { slidesPerView: 3.5 },
+          1024: { slidesPerView: 4.5 },
         }}
-        className="overflow-visible! pb-20"
-        freeMode={{ enabled: true, momentum: true }}
+        className="overflow-visible!"
         grabCursor
-        modules={[FreeMode, Navigation]}
-        navigation
         resistance
         resistanceRatio={0.85}
-        slidesPerView={1.15}
+        slidesPerView={2.5}
         spaceBetween={14}
         touchEventsTarget="container"
       >

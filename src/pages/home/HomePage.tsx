@@ -19,7 +19,7 @@ const HomePage: React.FC = () => {
 
   return (
     <PageWithRefresher onRefresh={handleRefresh}>
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-2">
         <HeroSwiper />
 
         <ComplexesSwiper complexes={complexes} />

@@ -9,7 +9,7 @@ import { cn } from "../../shared/lib";
 
 import { contactFormSchema, type ContactFormValues } from "./contactFormSchema";
 
-const PHONE_HREF = `tel:${TEXTS.contact_phone.replace(/\s|\(|\)/g, "")}`;
+const PHONE_HREF = `tel:${TEXTS.contact_phone}`;
 
 export interface ContactFormProps {
   className?: string;
@@ -38,12 +38,12 @@ const ContactForm = React.forwardRef<HTMLDivElement, ContactFormProps>(
     return (
       <div
         className={cn(
-          "contact-form-card relative mx-auto max-w-xl overflow-hidden rounded-2xl bg-white p-4 shadow-lg sm:p-8",
+          "contact-form-card relative w-full mt-[18px] mx-auto overflow-hidden rounded-2xl bg-white p-4 shadow-lg sm:max-w-xl sm:p-8",
           className,
         )}
         ref={ref}
       >
-        <h2 className="mb-2 text-2xl font-bold tracking-tight  text-slate-900 sm:text-3xl">
+        <h2 className="mb-2 text-2xl font-bold tracking-tight m-0!  text-slate-900 sm:text-3xl">
           {TEXTS.contact_form_title}
         </h2>
         <p className="mb-6 text-base flex gap-1 text-slate-600 text-center items-center justify-center flex-wrap">

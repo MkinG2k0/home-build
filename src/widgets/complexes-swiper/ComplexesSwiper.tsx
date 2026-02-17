@@ -1,5 +1,4 @@
 import * as React from "react";
-import { FreeMode } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import { TEXTS } from "../../shared/config";
@@ -17,8 +16,8 @@ export interface ComplexesSwiperProps {
 const ComplexesSwiper = React.forwardRef<
   HTMLTableSectionElement,
   ComplexesSwiperProps
->(({ className, complexes }, ref) => (
-  <section className={className} ref={ref}>
+>(({ complexes }) => (
+  <section>
     <IonText>
       <h2 className="mb-6 text-3xl! font-bold text-slate-800">
         {TEXTS.housing_complexes}
@@ -26,19 +25,17 @@ const ComplexesSwiper = React.forwardRef<
     </IonText>
     <Swiper
       breakpoints={{
-        320: { slidesPerView: 1.15 },
-        640: { slidesPerView: 2 },
-        1024: { slidesPerView: 3 },
+        320: { slidesPerView: 2.5 },
+        640: { slidesPerView: 3.5 },
+        1024: { slidesPerView: 4.5 },
       }}
-      className="overflow-visible! pb-2"
-      freeMode={{ enabled: true, momentum: true }}
       grabCursor
-      modules={[FreeMode]}
       resistance
       resistanceRatio={0.85}
-      slidesPerView={1.15}
+      slidesPerView={2.5}
       spaceBetween={14}
       touchEventsTarget="container"
+      className=" overflow-visible!"
     >
       {complexes.map((c) => (
         <SwiperSlide key={c.id}>

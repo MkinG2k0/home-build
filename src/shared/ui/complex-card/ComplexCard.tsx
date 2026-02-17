@@ -1,6 +1,5 @@
 import {
   IonCard,
-  IonCardContent,
   IonCardHeader,
   IonCardSubtitle,
   IonCardTitle,
@@ -19,7 +18,7 @@ const ComplexCard = React.forwardRef<HTMLIonCardElement, ComplexCardProps>(
   ({ className, complex }, ref) => (
     <IonCard
       className={cn(
-        "min-w-[260px] overflow-hidden rounded-xl border-0 shadow-md m-0!",
+        "w-full overflow-hidden h-full rounded-xl border-0 shadow-md m-0! ",
         "bg-white",
         className,
       )}
@@ -28,9 +27,9 @@ const ComplexCard = React.forwardRef<HTMLIonCardElement, ComplexCardProps>(
       <img
         alt={complex.name}
         src={complex.image}
-        className="h-40 w-full object-cover"
+        className="h-32 w-full object-cover"
       />
-      <IonCardHeader className="px-4 pb-1 pt-4">
+      <IonCardHeader className="px-4 pb-3 pt-1">
         <IonCardTitle className="text-base font-bold text-slate-800">
           {complex.name}
         </IonCardTitle>
@@ -40,12 +39,6 @@ const ComplexCard = React.forwardRef<HTMLIonCardElement, ComplexCardProps>(
           </IonCardSubtitle>
         )}
       </IonCardHeader>
-      {complex.priceStart && (
-        <IonCardContent className="px-4 pt-0 pb-4 text-sm text-slate-600">
-          {complex.priceStart}
-          {complex.metro && ` · ${complex.metro}`}
-        </IonCardContent>
-      )}
     </IonCard>
   ),
 );

@@ -9,9 +9,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-export interface HeroSwiperProps {
-  className?: string;
-}
+export interface HeroSwiperProps {}
 
 const HERO_SLIDE_IMAGES = [
   MOCK_IMAGES.building,
@@ -19,40 +17,38 @@ const HERO_SLIDE_IMAGES = [
   MOCK_IMAGES.news,
 ] as const;
 
-const HeroSwiper = React.forwardRef<HTMLDivElement, HeroSwiperProps>(
-  ({ className }, ref) => (
-    <div className={cn("hero-swiper relative", className)} ref={ref}>
-      <Swiper
-        className="aspect-video w-full overflow-hidden rounded-xl"
-        grabCursor
-        loop
-        modules={[Autoplay, Navigation, Pagination]}
-        navigation
-        pagination={{
-          bulletClass: "hero-swiper-bullet",
-          bulletActiveClass: "hero-swiper-bullet-active",
-          clickable: true,
-          el: ".hero-swiper-pagination",
-        }}
-        slidesPerView={1}
-        spaceBetween={0}
-        autoplay={{ delay: 3000, pauseOnMouseEnter: true }}
-        touchEventsTarget="container"
-        touchRatio={1}
-      >
-        {HERO_SLIDE_IMAGES.map((src, index) => (
-          <SwiperSlide key={index}>
-            <img alt="" className="size-full object-cover" src={src} />
-          </SwiperSlide>
-        ))}
-      </Swiper>
-      <div
-        aria-hidden
-        className="hero-swiper-pagination absolute bottom-3 left-0 right-0 z-20 flex justify-center gap-1.5"
-      />
-    </div>
-  ),
-);
+const HeroSwiper = React.forwardRef<HTMLDivElement, HeroSwiperProps>(({}) => (
+  <div className={cn("hero-swiper relative")}>
+    <Swiper
+      className="aspect-video w-full overflow-hidden rounded-xl"
+      grabCursor
+      loop
+      modules={[Autoplay, Navigation, Pagination]}
+      navigation
+      pagination={{
+        bulletClass: "hero-swiper-bullet",
+        bulletActiveClass: "hero-swiper-bullet-active",
+        clickable: true,
+        el: ".hero-swiper-pagination",
+      }}
+      slidesPerView={1}
+      spaceBetween={0}
+      autoplay={{ delay: 3000, pauseOnMouseEnter: true }}
+      touchEventsTarget="container"
+      touchRatio={1}
+    >
+      {HERO_SLIDE_IMAGES.map((src, index) => (
+        <SwiperSlide key={index}>
+          <img alt="" className="size-full object-cover" src={src} />
+        </SwiperSlide>
+      ))}
+    </Swiper>
+    <div
+      aria-hidden
+      className="hero-swiper-pagination absolute bottom-3 left-0 right-0 z-20 flex justify-center gap-1.5"
+    />
+  </div>
+));
 
 HeroSwiper.displayName = "HeroSwiper";
 

@@ -1,33 +1,45 @@
 /* Tailwind без Preflight, чтобы не переопределять стили @ionic/react (кнопки, FAB и т.д.) */
 @layer theme, base, components, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
 
 /* Тонкий нативный скроллбар для основной области контента */
 .main-scroll {
   scrollbar-width: thin;
   scrollbar-color: hsl(215 20% 75% / 0.8) transparent;
 }
+
 .main-scroll::-webkit-scrollbar {
   width: 6px;
 }
+
 .main-scroll::-webkit-scrollbar-track {
   background: transparent;
 }
+
 .main-scroll::-webkit-scrollbar-thumb {
   background: hsl(215 20% 75% / 0.7);
   border-radius: 3px;
 }
+
 .main-scroll::-webkit-scrollbar-thumb:hover {
   background: hsl(215 20% 65% / 0.85);
 }
+
 .main-scroll::-webkit-scrollbar-thumb:active {
   background: hsl(215 20% 55% / 0.9);
 }
-@import "tailwindcss/theme.css" layer(theme);
-@import "tailwindcss/utilities.css" layer(utilities);
 
 /* Базовый фон приложения */
 ion-app {
   --ion-background-color: var(--color-slate-50);
+}
+
+/* Зум 0.8 для мобильных устройств - изменяем базовый font-size для масштабирования всех rem единиц */
+@media (max-width: 639px) {
+  html {
+    font-size: 16px; /* 16px * 0.8 = 12.8px (базовый размер браузера обычно 16px) */
+  }
 }
 
 /* Hero Swiper: один слайд, скруглённые углы */
@@ -35,15 +47,19 @@ ion-app {
   overflow: hidden;
   border-radius: 0.75rem;
 }
+
 .hero-swiper .swiper-slide {
   overflow: hidden;
 }
-
+.swiper-slide {
+  height: auto;
+}
 /* Hero Swiper navigation: скрыты на телефоне, видны от sm */
 .hero-swiper .swiper-button-prev,
 .hero-swiper .swiper-button-next {
   display: none;
 }
+
 @media (min-width: 640px) {
   .hero-swiper .swiper-button-prev,
   .hero-swiper .swiper-button-next {
@@ -62,14 +78,17 @@ ion-app {
       background 0.2s,
       transform 0.1s;
   }
+
   .hero-swiper .swiper-button-prev:hover,
   .hero-swiper .swiper-button-next:hover {
     background: rgba(255, 255, 255, 0.3);
   }
+
   .hero-swiper .swiper-button-prev:active,
   .hero-swiper .swiper-button-next:active {
     transform: scale(0.95);
   }
+
   .hero-swiper .swiper-button-prev::after,
   .hero-swiper .swiper-button-next::after {
     font-size: 1.25rem;
@@ -87,59 +106,10 @@ ion-app {
     background 0.2s,
     transform 0.2s;
 }
+
 .hero-swiper-bullet-active {
   background: var(--color-brand);
   transform: scale(1.2);
-}
-
-/* Video Section: стрелки под каруселью, слева светлая, справа тёмная */
-.video-section .swiper-button-prev,
-.video-section .swiper-button-next {
-  --swiper-navigation-size: 1.25rem;
-  bottom: -3rem;
-  left: 50%;
-  position: absolute;
-  top: auto;
-  transform: translateX(calc(-50% - 2rem));
-  width: 2.5rem;
-  height: 2.5rem;
-  margin: 0;
-  border-radius: 9999px;
-  padding: 10px;
-  transition:
-    background 0.2s,
-    transform 0.1s;
-}
-.video-section .swiper-button-next {
-  transform: translateX(calc(-50% + 2rem));
-}
-.video-section .swiper-button-prev::after,
-.video-section .swiper-button-next::after {
-  font-size: 1.25rem;
-  font-weight: 700;
-}
-.video-section .swiper-button-prev {
-  background: hsl(215 20% 95%);
-  --swiper-navigation-color: hsl(215 25% 35%);
-  box-shadow: 0 1px 3px rgb(0 0 0 / 0.1);
-}
-.video-section .swiper-button-next {
-  background: hsl(215 25% 25%);
-  --swiper-navigation-color: #fff;
-  box-shadow: 0 2px 6px rgb(0 0 0 / 0.2);
-}
-.video-section .swiper-button-prev:hover {
-  background: hsl(215 20% 90%);
-}
-.video-section .swiper-button-next:hover {
-  background: hsl(215 25% 20%);
-}
-.video-section .swiper-button-prev:active,
-.video-section .swiper-button-next:active {
-  transform: translateX(calc(-50% - 2rem)) scale(0.95);
-}
-.video-section .swiper-button-next:active {
-  transform: translateX(calc(-50% + 2rem)) scale(0.95);
 }
 
 /* Модалка видео: размер, закруглённые углы */
@@ -150,6 +120,7 @@ ion-modal.video-modal {
   --height: 85%;
   --width: min(90vw, 720px);
 }
+
 .video-modal::part(content),
 ion-modal.video-modal::part(content) {
   border-radius: 1rem;
