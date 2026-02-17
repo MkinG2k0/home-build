@@ -10,7 +10,7 @@ import {
 } from "@ionic/react";
 import { notificationsOutline, personCircleOutline } from "ionicons/icons";
 import * as React from "react";
-import { useLocation } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 
 import { MENU_ITEMS } from "../app-menu";
 import { cn } from "../../shared/lib";
@@ -21,7 +21,21 @@ export interface AppHeaderProps {
 
 const AppHeader = React.forwardRef<HTMLIonHeaderElement, AppHeaderProps>(
   ({ className }, ref) => {
+    const history = useHistory();
     const location = useLocation();
+
+    const handleLogoClick = React.useCallback(() => {
+      if (location.pathname !== "/") {
+        history.push("/");
+      }
+      const mainElement = document.querySelector(".main-scroll");
+      if (mainElement) {
+        mainElement.scrollTo({ top: 0, behavior: "smooth" });
+      } else {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    }, [history, location.pathname]);
+
     return (
       <IonHeader className={cn("shadow-none!   ", className)} ref={ref}>
         <IonToolbar className="min-h-[56px] px-2">
@@ -32,7 +46,8 @@ const AppHeader = React.forwardRef<HTMLIonHeaderElement, AppHeaderProps>(
             />
             <img
               alt="Эталон Инвест"
-              className="hidden h-14 w-auto lg:block"
+              className="hidden h-14 w-auto cursor-pointer lg:block"
+              onClick={handleLogoClick}
               src="/logo.png"
             />
           </IonButtons>
@@ -40,7 +55,8 @@ const AppHeader = React.forwardRef<HTMLIonHeaderElement, AppHeaderProps>(
             <IonTitle className="flex items-center justify-center lg:hidden">
               <img
                 alt="Эталон Инвест"
-                className="h-14 w-auto"
+                className="h-14 w-auto cursor-pointer"
+                onClick={handleLogoClick}
                 src="/logo.png"
               />
             </IonTitle>

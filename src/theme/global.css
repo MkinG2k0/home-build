@@ -112,17 +112,20 @@ ion-app {
   transform: scale(1.2);
 }
 
-/* Модалка видео: размер, закруглённые углы */
+/* Модалка видео: под размер контента, закруглённые углы */
 .video-modal,
 ion-modal.video-modal {
   --border-radius: 1rem;
   --box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
-  --height: 85%;
+  --height: fit-content;
+  --max-height: 90vh;
   --width: min(90vw, 720px);
 }
 
 .video-modal::part(content),
 ion-modal.video-modal::part(content) {
   border-radius: 1rem;
+  height: auto;
+  max-height: 90vh;
   overflow: hidden;
 }

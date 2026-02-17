@@ -1,26 +1,12 @@
-import {
-  IonButton,
-  IonButtons,
-  IonContent,
-  IonHeader,
-  IonIcon,
-  IonModal,
-  IonText,
-  IonTitle,
-  IonToolbar,
-} from "@ionic/react";
-import { close } from "ionicons/icons";
+import { IonText } from "@ionic/react";
 import * as React from "react";
-import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import { TEXTS } from "../../shared/config";
-import { cn } from "../../shared/lib";
 import type { VideoItem } from "../../shared/model";
-import { VideoCard } from "../../shared/ui";
+import { VideoCard, VideoModal } from "../../shared/ui";
 
 import "swiper/css";
-import "swiper/css/navigation";
 
 export interface VideoSectionProps {
   className?: string;
@@ -62,40 +48,18 @@ const VideoSection = React.forwardRef<
       >
         {videos.map((v) => (
           <SwiperSlide key={v.id}>
-            <VideoCard item={v} onPress={() => setSelectedVideo(v)} />
+            <VideoCard
+              item={v}
+              onPress={() => setSelectedVideo(v)}
+            />
           </SwiperSlide>
         ))}
       </Swiper>
-      <IonModal
-        backdropDismiss
-        className="video-modal"
-        isOpen={!!selectedVideo}
+      <VideoModal
+        isOpen={selectedVideo !== null}
+        video={selectedVideo}
         onDidDismiss={handleCloseModal}
-      >
-        <IonHeader>
-          <IonToolbar>
-            <IonTitle className="font-semibold text-slate-800">
-              {selectedVideo?.title ?? ""}
-            </IonTitle>
-            <IonButtons slot="end">
-              <IonButton aria-label={TEXTS.close} onClick={handleCloseModal}>
-                <IonIcon icon={close} />
-              </IonButton>
-            </IonButtons>
-          </IonToolbar>
-        </IonHeader>
-        <IonContent>
-          {selectedVideo && (
-            <div className="flex min-h-full items-center justify-center">
-              <img
-                alt=""
-                className="h-full w-full object-contain"
-                src={selectedVideo.thumbnailUrl}
-              />
-            </div>
-          )}
-        </IonContent>
-      </IonModal>
+      />
     </section>
   );
 });

@@ -1,3 +1,4 @@
+import { IonRouterLink, IonText } from "@ionic/react";
 import * as React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -6,7 +7,6 @@ import type { Complex } from "../../shared/model";
 import { ComplexCard } from "../../shared/ui";
 
 import "swiper/css";
-import { IonText } from "@ionic/react";
 
 export interface ComplexesSwiperProps {
   className?: string;
@@ -39,7 +39,9 @@ const ComplexesSwiper = React.forwardRef<
     >
       {complexes.map((c) => (
         <SwiperSlide key={c.id}>
-          <ComplexCard complex={c} />
+          <IonRouterLink routerDirection="forward" routerLink={`/catalog/${c.id}`}>
+            <ComplexCard complex={c} />
+          </IonRouterLink>
         </SwiperSlide>
       ))}
     </Swiper>

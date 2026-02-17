@@ -6,10 +6,10 @@ import { AppHeader } from "../widgets/app-header";
 import { AppMenu } from "../widgets/app-menu";
 import { CallFab } from "../widgets/call-fab";
 import { AboutPage } from "../pages/about";
-import { CatalogPage } from "../pages/catalog";
+import { CatalogDetailPage, CatalogPage } from "../pages/catalog";
 import { HomePage } from "../pages/home";
-import { NewsPage } from "../pages/news";
-import { VideoblogPage } from "../pages/videoblog";
+import { NewsDetailPage, NewsPage } from "../pages/news";
+import { VideoblogDetailPage, VideoblogPage } from "../pages/videoblog";
 
 type RouteProps = {
   component: React.ComponentType;
@@ -29,10 +29,13 @@ export const AppShell: React.FC = () => (
         <main className="main-scroll relative flex-1 overflow-auto bg-slate-50">
           <IonRouterOutlet id="router-outlet">
             <Route component={HomePage} exact path="/" />
-            <Route component={CatalogPage} path="/catalog" />
-            <Route component={NewsPage} path="/news" />
-            <Route component={VideoblogPage} path="/videos" />
-            <Route component={AboutPage} path="/about" />
+            <Route component={CatalogDetailPage} path="/catalog/:id" />
+            <Route component={CatalogPage} exact path="/catalog" />
+            <Route component={NewsDetailPage} path="/news/:id" />
+            <Route component={NewsPage} exact path="/news" />
+            {/* <Route component={VideoblogDetailPage} path="/videos/:id" /> */}
+            <Route component={VideoblogPage} exact path="/videos" />
+            <Route component={AboutPage} exact path="/about" />
           </IonRouterOutlet>
         </main>
       </div>

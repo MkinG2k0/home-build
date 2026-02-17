@@ -1,44 +1,39 @@
-import { IonCard, IonCardHeader, IonCardTitle, IonIcon } from "@ionic/react";
-import { playCircle } from "ionicons/icons";
+import { IonCol, IonGrid, IonRow } from "@ionic/react";
 import * as React from "react";
 
 import { useAppStore } from "../../app/store";
-import { cn } from "../../shared/lib";
-import { PageWithRefresher } from "../../shared/ui";
+import type { VideoItem } from "../../shared/model";
+import { PageWithRefresher, VideoCard, VideoModal } from "../../shared/ui";
 
 const VideoblogPage: React.FC = () => {
   const videos = useAppStore((s) => s.videos);
+  const [selectedVideo, setSelectedVideo] = React.useState<VideoItem | null>(
+    null,
+  );
+
+  const handleCloseModal = React.useCallback(() => {
+    setSelectedVideo(null);
+  }, []);
 
   return (
     <PageWithRefresher>
-      <div className="flex flex-col gap-4">
-        {videos.map((v) => (
-          <IonCard
-            key={v.id}
-            className="overflow-hidden rounded-xl border-0 shadow-md bg-white"
-          >
-            <div className="relative">
-              <img
-                alt=""
-                className="h-40 w-full object-cover"
-                src={v.thumbnailUrl}
+      <IonGrid>
+        <IonRow>
+          {videos.map((v) => (
+            <IonCol key={v.id} size="12" sizeMd="6" sizeLg="4">
+              <VideoCard
+                item={v}
+                onPress={() => setSelectedVideo(v)}
               />
-              <div
-                className={cn(
-                  "absolute inset-0 flex items-center justify-center bg-black/30",
-                )}
-              >
-                <IonIcon className="text-5xl text-white" icon={playCircle} />
-              </div>
-            </div>
-            <IonCardHeader className="pb-1 pt-2">
-              <IonCardTitle className="text-base font-bold text-slate-800">
-                {v.title}
-              </IonCardTitle>
-            </IonCardHeader>
-          </IonCard>
-        ))}
-      </div>
+            </IonCol>
+          ))}
+        </IonRow>
+      </IonGrid>
+      <VideoModal
+        isOpen={selectedVideo !== null}
+        video={selectedVideo}
+        onDidDismiss={handleCloseModal}
+      />
     </PageWithRefresher>
   );
 };

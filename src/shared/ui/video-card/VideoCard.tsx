@@ -21,7 +21,7 @@ const VideoCard = React.forwardRef<HTMLIonCardElement, VideoCardProps>(
       ref={ref}
       onClick={onPress}
     >
-      <div className="relative aspect-video w-full">
+      <div className="relative aspect-video w-full overflow-hidden">
         <img
           alt=""
           className="size-full object-cover"

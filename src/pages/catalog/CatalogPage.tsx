@@ -1,4 +1,4 @@
-import { IonCol, IonGrid, IonRow } from "@ionic/react";
+import { IonCol, IonGrid, IonRow, IonRouterLink } from "@ionic/react";
 import * as React from "react";
 
 import { useAppStore } from "../../app/store";
@@ -13,7 +13,12 @@ const CatalogPage: React.FC = () => {
         <IonRow>
           {complexes.map((c) => (
             <IonCol key={c.id} size="12" sizeMd="6" sizeLg="4">
-              <ComplexCard complex={c} />
+              <IonRouterLink
+                routerDirection="forward"
+                routerLink={`/catalog/${c.id}`}
+              >
+                <ComplexCard complex={c} />
+              </IonRouterLink>
             </IonCol>
           ))}
         </IonRow>
