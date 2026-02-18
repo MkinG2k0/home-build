@@ -10,7 +10,7 @@
     "test.e2e": "cypress run",
     "test.unit": "vitest",
     "lint": "eslint",
-    "build:all": "npm run build && npm run export && npx cap copy",
+    "build:all": "npm run build && npx cap copy && npm run sync",
     "sync": "npx cap sync",
     "android": "npx cap run android",
     "ios": "npx cap run ios"
