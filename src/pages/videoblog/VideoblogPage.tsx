@@ -1,12 +1,23 @@
 import { IonCol, IonGrid, IonRow } from "@ionic/react";
 import * as React from "react";
 
-import { useAppStore } from "../../app/store";
+import { useVideoBlogs } from "../../shared/lib/hooks";
 import type { VideoItem } from "../../shared/model";
-import { PageWithRefresher, VideoCard, VideoModal } from "../../shared/ui";
+import {
+  ErrorState,
+  LoadingState,
+  PageWithRefresher,
+  VideoCard,
+  VideoModal,
+} from "../../shared/ui";
 
 const VideoblogPage: React.FC = () => {
-  const videos = useAppStore((s) => s.videos);
+  const {
+    data: videos,
+    isLoading,
+    isError,
+    refetch,
+  } = useVideoBlogs();
   const [selectedVideo, setSelectedVideo] = React.useState<VideoItem | null>(
     null,
   );
@@ -14,6 +25,22 @@ const VideoblogPage: React.FC = () => {
   const handleCloseModal = React.useCallback(() => {
     setSelectedVideo(null);
   }, []);
+
+  if (isLoading) {
+    return (
+      <PageWithRefresher>
+        <LoadingState />
+      </PageWithRefresher>
+    );
+  }
+
+  if (isError || !videos) {
+    return (
+      <PageWithRefresher>
+        <ErrorState onRetry={() => refetch()} />
+      </PageWithRefresher>
+    );
+  }
 
   return (
     <PageWithRefresher>

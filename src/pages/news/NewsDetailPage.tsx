@@ -2,16 +2,15 @@ import { IonCard, IonCardContent, IonCardHeader, IonCardTitle } from "@ionic/rea
 import * as React from "react";
 import { useParams } from "react-router-dom";
 
-import { useAppStore } from "../../app/store";
+import { mockNews } from "../../shared/data/mockData";
 import { PageWithRefresher } from "../../shared/ui";
 
 const NewsDetailPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
-  const news = useAppStore((s) => s.news);
 
   const newsItem = React.useMemo(
-    () => news.find((item) => item.id === id),
-    [news, id],
+    () => mockNews.find((item) => item.id === id),
+    [id],
   );
 
   if (!newsItem) {

@@ -3,6 +3,7 @@ import { IonReactRouter } from '@ionic/react-router'
 import * as React from 'react'
 
 import { AppShell } from './app/AppShell'
+import { QueryProvider } from './app/providers/QueryProvider'
 
 import '@ionic/react/css/core.css'
 import '@ionic/react/css/normalize.css'
@@ -21,11 +22,13 @@ import './theme/variables.css'
 setupIonicReact()
 
 const App: React.FC = () => (
-	<IonApp>
-		<IonReactRouter>
-			<AppShell/>
-		</IonReactRouter>
-	</IonApp>
+	<QueryProvider>
+		<IonApp>
+			<IonReactRouter>
+				<AppShell/>
+			</IonReactRouter>
+		</IonApp>
+	</QueryProvider>
 )
 
 export default App

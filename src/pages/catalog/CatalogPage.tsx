@@ -1,11 +1,37 @@
 import { IonCol, IonGrid, IonRow, IonRouterLink } from "@ionic/react";
 import * as React from "react";
 
-import { useAppStore } from "../../app/store";
-import { ComplexCard, PageWithRefresher } from "../../shared/ui";
+import { useResidentialComplexes } from "../../shared/lib/hooks";
+import {
+  ComplexCard,
+  ErrorState,
+  LoadingState,
+  PageWithRefresher,
+} from "../../shared/ui";
 
 const CatalogPage: React.FC = () => {
-  const complexes = useAppStore((s) => s.complexes);
+  const {
+    data: complexes,
+    isLoading,
+    isError,
+    refetch,
+  } = useResidentialComplexes();
+
+  if (isLoading) {
+    return (
+      <PageWithRefresher>
+        <LoadingState />
+      </PageWithRefresher>
+    );
+  }
+
+  if (isError || !complexes) {
+    return (
+      <PageWithRefresher>
+        <ErrorState onRetry={() => refetch()} />
+      </PageWithRefresher>
+    );
+  }
 
   return (
     <PageWithRefresher>

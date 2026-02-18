@@ -28,8 +28,10 @@
     "@ionic/react": "^8.5.0",
     "@ionic/react-router": "^8.5.0",
     "@tailwindcss/vite": "^4.1.18",
+    "@tanstack/react-query": "^5.90.21",
     "@types/react-router": "^5.1.20",
     "@types/react-router-dom": "^5.3.3",
+    "axios": "^1.13.5",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "ionicons": "^7.4.0",
@@ -41,8 +43,7 @@
     "swiper": "^12.1.1",
     "tailwind-merge": "^3.4.1",
     "tailwindcss": "^4.1.18",
-    "zod": "^4.3.6",
-    "zustand": "^5.0.11"
+    "zod": "^4.3.6"
   },
   "devDependencies": {
     "@capacitor/cli": "8.1.0",

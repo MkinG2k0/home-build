@@ -1,6 +1,11 @@
 import * as React from "react";
 
-import { useAppStore } from "../../app/store";
+import {
+  useMainSlider,
+  useNews,
+  useResidentialComplexes,
+  useVideoBlogs,
+} from "../../shared/lib/hooks";
 import { PageWithRefresher } from "../../shared/ui";
 import { ComplexesSwiper } from "../../widgets/complexes-swiper";
 import { ContactForm } from "../../widgets/contact-form";
@@ -9,18 +14,24 @@ import { HomeNewsSection } from "../../widgets/home-news-section";
 import { VideoSection } from "../../widgets/video-section";
 
 const HomePage: React.FC = () => {
-  const complexes = useAppStore((s) => s.complexes);
-  const news = useAppStore((s) => s.news);
-  const videos = useAppStore((s) => s.videos);
+  const { data: mainSlider, refetch: refetchMainSlider } = useMainSlider();
+  const { data: complexes, refetch: refetchComplexes } =
+    useResidentialComplexes();
+  const { data: videos, refetch: refetchVideos } = useVideoBlogs();
+  const { data: news, refetch: refetchNews } = useNews();
 
   const handleRefresh = React.useCallback(() => {
-    // TODO: перезагрузка данных страницы
-  }, []);
+    refetchMainSlider();
+    refetchComplexes();
+    refetchVideos();
+    refetchNews();
+  }, [refetchMainSlider, refetchComplexes, refetchVideos, refetchNews]);
 
+  console.log(mainSlider);
   return (
     <PageWithRefresher onRefresh={handleRefresh}>
       <div className="flex flex-col gap-2">
-        <HeroSwiper />
+        <HeroSwiper slides={mainSlider} />
 
         <ComplexesSwiper complexes={complexes} />
 

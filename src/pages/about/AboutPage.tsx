@@ -2,7 +2,7 @@ import { IonIcon } from "@ionic/react";
 import { paperPlaneOutline, logoVk, logoWhatsapp } from "ionicons/icons";
 import * as React from "react";
 
-import { useAppStore } from "../../app/store";
+import { mockTeam } from "../../shared/data/mockData";
 import { TEXTS } from "../../shared/config";
 import { cn } from "../../shared/lib";
 import { PageWithRefresher, TeamMemberCard } from "../../shared/ui";
@@ -16,7 +16,6 @@ const SOCIALS = [
 ] as const;
 
 const AboutPage: React.FC = () => {
-  const team = useAppStore((s) => s.team);
 
   return (
     <PageWithRefresher>

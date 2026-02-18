@@ -7,11 +7,11 @@ import {
 import * as React from 'react'
 
 import { cn } from '../../lib'
-import type { NewsItem } from '../../model'
+import type { StrapiEntity, StrapiNewsAttributes } from '../../model'
 
 export interface NewsCardProps {
 	className?: string;
-	item: NewsItem;
+	item: StrapiEntity<StrapiNewsAttributes>;
 }
 
 const NewsCard = React.forwardRef<HTMLIonCardElement, NewsCardProps>(
@@ -26,7 +26,7 @@ const NewsCard = React.forwardRef<HTMLIonCardElement, NewsCardProps>(
 			<div className="flex flex-row">
 				<img
 					alt=""
-					src={item.image}
+					src={item.img.url}
 					className="h-36 shrink-0 object-cover w-40"
 				/>
 				<div className="flex flex-1 flex-col">
@@ -40,7 +40,7 @@ const NewsCard = React.forwardRef<HTMLIonCardElement, NewsCardProps>(
 							{item.description}
 						</p>
 						<span className="mt-auto pt-2 text-right text-xs text-slate-500">
-              {item.date}
+              {new Date(item.createdAt).toLocaleDateString()}
             </span>
 					</IonCardContent>
 				</div>

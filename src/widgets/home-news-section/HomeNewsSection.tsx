@@ -2,12 +2,12 @@ import { IonRouterLink, IonText } from "@ionic/react";
 import * as React from "react";
 
 import { TEXTS } from "../../shared/config";
-import type { NewsItem } from "../../shared/model";
+import type { StrapiEntity, StrapiNewsAttributes } from "../../shared/model";
 import { NewsCard } from "../../shared/ui";
 
 export interface HomeNewsSectionProps {
   className?: string;
-  news: NewsItem[];
+  news?: StrapiEntity<StrapiNewsAttributes>[];
 }
 
 const HomeNewsSection = React.forwardRef<HTMLElement, HomeNewsSectionProps>(
@@ -19,7 +19,7 @@ const HomeNewsSection = React.forwardRef<HTMLElement, HomeNewsSectionProps>(
         </h2>
       </IonText>
       <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-1 lg:grid-cols-2">
-        {news.slice(0, 4).map((item) => (
+        {news?.map((item) => (
           <IonRouterLink
             key={item.id}
             routerDirection="forward"

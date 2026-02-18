@@ -3,20 +3,40 @@ import { playCircle } from "ionicons/icons";
 import * as React from "react";
 import { useParams } from "react-router-dom";
 
-import { useAppStore } from "../../app/store";
+import { useVideoBlog } from "../../shared/lib/hooks";
 import { cn } from "../../shared/lib";
-import { PageWithRefresher } from "../../shared/ui";
+import {
+  ErrorState,
+  LoadingState,
+  PageWithRefresher,
+} from "../../shared/ui";
 
 const VideoblogDetailPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
-  const videos = useAppStore((s) => s.videos);
+  const {
+    data: video,
+    isLoading,
+    isError,
+    refetch,
+  } = useVideoBlog(id);
 
-  const video = React.useMemo(
-    () => videos.find((v) => v.id === id),
-    [videos, id],
-  );
+  if (isLoading) {
+    return (
+      <PageWithRefresher>
+        <LoadingState />
+      </PageWithRefresher>
+    );
+  }
 
-  if (!video) {
+  if (isError) {
+    return (
+      <PageWithRefresher>
+        <ErrorState onRetry={() => refetch()} />
+      </PageWithRefresher>
+    );
+  }
+
+  if (!video?.data) {
     return (
       <PageWithRefresher>
         <div className="flex items-center justify-center p-8">
@@ -26,15 +46,17 @@ const VideoblogDetailPage: React.FC = () => {
     );
   }
 
+  const videoData = video.data;
+
   return (
     <PageWithRefresher>
       <div className="flex flex-col gap-4 p-4">
         <IonCard className="overflow-hidden rounded-xl border-0 shadow-md bg-white m-0!">
           <div className="relative">
             <img
-              alt={video.title}
+              alt={videoData.title}
               className="h-80 w-full object-cover"
-              src={video.thumbnailUrl}
+              src={videoData.img.url}
             />
             <div
               className={cn(
@@ -46,7 +68,7 @@ const VideoblogDetailPage: React.FC = () => {
           </div>
           <IonCardHeader className="px-4 pb-4 pt-4">
             <IonCardTitle className="text-2xl font-bold text-slate-800">
-              {video.title}
+              {videoData.title}
             </IonCardTitle>
           </IonCardHeader>
         </IonCard>
