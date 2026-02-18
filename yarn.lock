@@ -6875,7 +6875,7 @@ workbox-build@^7.4.0:
     workbox-sw "7.4.0"
     workbox-window "7.4.0"
 
-workbox-cacheable-response@7.4.0:
+workbox-cacheable-response@^7.4.0, workbox-cacheable-response@7.4.0:
   version "7.4.0"
   resolved "https://registry.npmjs.org/workbox-cacheable-response/-/workbox-cacheable-response-7.4.0.tgz"
   integrity sha512-0Fb8795zg/x23ISFkAc7lbWes6vbw34DGFIMw31cwuHPgDEC/5EYm6m/ZkylLX0EnEbbOyOCLjKgFS/Z5g0HeQ==
@@ -6887,7 +6887,7 @@ workbox-core@7.4.0:
   resolved "https://registry.npmjs.org/workbox-core/-/workbox-core-7.4.0.tgz"
   integrity sha512-6BMfd8tYEnN4baG4emG9U0hdXM4gGuDU3ectXuVHnj71vwxTFI7WOpQJC4siTOlVtGqCUtj0ZQNsrvi6kZZTAQ==
 
-workbox-expiration@7.4.0:
+workbox-expiration@^7.4.0, workbox-expiration@7.4.0:
   version "7.4.0"
   resolved "https://registry.npmjs.org/workbox-expiration/-/workbox-expiration-7.4.0.tgz"
   integrity sha512-V50p4BxYhtA80eOvulu8xVfPBgZbkxJ1Jr8UUn0rvqjGhLDqKNtfrDfjJKnLz2U8fO2xGQJTx/SKXNTzHOjnHw==
@@ -6940,14 +6940,14 @@ workbox-recipes@7.4.0:
     workbox-routing "7.4.0"
     workbox-strategies "7.4.0"
 
-workbox-routing@7.4.0:
+workbox-routing@^7.4.0, workbox-routing@7.4.0:
   version "7.4.0"
   resolved "https://registry.npmjs.org/workbox-routing/-/workbox-routing-7.4.0.tgz"
   integrity sha512-C/ooj5uBWYAhAqwmU8HYQJdOjjDKBp9MzTQ+otpMmd+q0eF59K+NuXUek34wbL0RFrIXe/KKT+tUWcZcBqxbHQ==
   dependencies:
     workbox-core "7.4.0"
 
-workbox-strategies@7.4.0:
+workbox-strategies@^7.4.0, workbox-strategies@7.4.0:
   version "7.4.0"
   resolved "https://registry.npmjs.org/workbox-strategies/-/workbox-strategies-7.4.0.tgz"
   integrity sha512-T4hVqIi5A4mHi92+5EppMX3cLaVywDp8nsyUgJhOZxcfSV/eQofcOA6/EMo5rnTNmNTpw0rUgjAI6LaVullPpg==
