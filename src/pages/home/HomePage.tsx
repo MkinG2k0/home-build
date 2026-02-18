@@ -27,6 +27,8 @@ const HomePage: React.FC = () => {
     refetchNews();
   }, [refetchMainSlider, refetchComplexes, refetchVideos, refetchNews]);
 
+  const newsSlice = news?.slice(0, 4) ?? [];
+
   return (
     <PageWithRefresher onRefresh={handleRefresh}>
       <div className="flex flex-col gap-2 pb-24">
@@ -34,7 +36,7 @@ const HomePage: React.FC = () => {
 
         <ComplexesSwiper complexes={complexes} />
 
-        <HomeNewsSection news={news} />
+        <HomeNewsSection news={newsSlice} />
 
         <VideoSection videos={videos} />
 
