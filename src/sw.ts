@@ -8,7 +8,11 @@ precacheAndRoute(self.__WB_MANIFEST);
 
 self.addEventListener("push", (event: PushEvent) => {
   if (!event.data) return;
-  const data = event.data.json() as { title?: string; body?: string; tag?: string };
+  const data = event.data.json() as {
+    title?: string;
+    body?: string;
+    tag?: string;
+  };
   const title = data?.title ?? "Уведомление";
   const options: NotificationOptions = {
     body: data?.body,
@@ -24,7 +28,9 @@ self.addEventListener("notificationclick", (event: NotificationEvent) => {
     self.clients
       .matchAll({ type: "window", includeUncontrolled: true })
       .then((clientList) => {
-        const client = clientList.find((c) => c.url === urlToOpen || "focus" in c);
+        const client = clientList.find(
+          (c) => c.url === urlToOpen || "focus" in c,
+        );
         if (client) return client.focus();
         if (self.clients.openWindow) return self.clients.openWindow(urlToOpen);
       }),
