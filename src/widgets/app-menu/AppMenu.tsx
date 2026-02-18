@@ -20,6 +20,7 @@ import { useLocation } from "react-router-dom";
 
 import { TEXTS } from "../../shared/config";
 import { cn } from "../../shared/lib";
+import { NotificationsPrompt } from "../../shared/ui";
 
 export const MENU_ITEMS = [
   { icon: homeOutline, path: "/", title: TEXTS.home },
@@ -62,6 +63,9 @@ const AppMenu: React.FC<AppMenuProps> = ({ contentId }) => {
               </IonItem>
             </IonMenuToggle>
           ))}
+          <div className="mt-4 border-t border-slate-200 pt-2">
+            <NotificationsPrompt className="mt-2" />
+          </div>
         </IonList>
       </IonContent>
     </IonMenu>
