@@ -65,7 +65,12 @@ const AppHeader = React.forwardRef<HTMLIonHeaderElement, AppHeaderProps>(
               className="hidden items-center gap-1 lg:flex"
             >
               {MENU_ITEMS.map((item) => {
-                const isActive = location.pathname === item.path;
+                const isActive =
+                  location.pathname === item.path ||
+                  (location.pathname !== "/" &&
+                    item.path !== "/" &&
+                    location.pathname.startsWith(item.path + "/"));
+
                 return (
                   <IonRouterLink
                     className={cn(

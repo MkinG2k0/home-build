@@ -5,6 +5,7 @@ import * as React from "react";
 import { AppShell } from "./app/AppShell";
 import { QueryProvider } from "./app/providers/QueryProvider";
 import { SpeedInsights } from "@vercel/speed-insights/react";
+import { Analytics } from "@vercel/analytics/next";
 
 import "@ionic/react/css/core.css";
 import "@ionic/react/css/normalize.css";
@@ -28,6 +29,7 @@ const App: React.FC = () => (
       <IonReactRouter>
         <AppShell />
         <SpeedInsights />
+        <Analytics />
       </IonReactRouter>
     </IonApp>
   </QueryProvider>
