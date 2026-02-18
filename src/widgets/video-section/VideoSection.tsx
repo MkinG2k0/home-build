@@ -56,8 +56,8 @@ const VideoSection: React.FC<VideoSectionProps> = ({videos}) => {
 				isOpen={selectedVideo !== null}
 				video={selectedVideo}
 				onDidDismiss={handleCloseModal}
-		/>
-	</section>
+			/>
+		</section>
 	)
 }
 

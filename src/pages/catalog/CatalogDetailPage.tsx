@@ -10,11 +10,7 @@ import { useParams } from "react-router-dom";
 
 import { useResidentialComplex } from "../../shared/lib/hooks";
 import { getStrapiImageUrl } from "../../shared/lib";
-import {
-  ErrorState,
-  LoadingState,
-  PageWithRefresher,
-} from "../../shared/ui";
+import { ErrorState, LoadingState, PageWithRefresher } from "../../shared/ui";
 
 const CatalogDetailPage: React.FC = () => {
   const { id: documentId } = useParams<{ id: string }>();
@@ -55,8 +51,8 @@ const CatalogDetailPage: React.FC = () => {
 
   return (
     <PageWithRefresher>
-      <div className="flex flex-col gap-4 p-4">
-        <IonCard className="overflow-hidden rounded-xl border-0 shadow-md bg-white m-0!">
+      <div className="flex flex-col gap-4 p-4 h-full">
+        <IonCard className="overflow-hidden h-full rounded-xl border-0 shadow-md bg-white m-0!">
           <img
             alt={complexData.title}
             className="h-64 w-full object-cover"

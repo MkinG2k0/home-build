@@ -6,14 +6,11 @@ import {
 } from "@ionic/react";
 import * as React from "react";
 import { useParams } from "react-router-dom";
+import { BlocksRenderer } from "@strapi/blocks-react-renderer";
 
 import { useNewsById } from "../../shared/lib/hooks";
 import { getStrapiImageUrl } from "../../shared/lib";
-import {
-  ErrorState,
-  LoadingState,
-  PageWithRefresher,
-} from "../../shared/ui";
+import { ErrorState, LoadingState, PageWithRefresher } from "../../shared/ui";
 
 const NewsDetailPage: React.FC = () => {
   const { id: documentId } = useParams<{ id: string }>();
@@ -54,8 +51,8 @@ const NewsDetailPage: React.FC = () => {
 
   return (
     <PageWithRefresher>
-      <div className="flex flex-col gap-4 p-4">
-        <IonCard className="overflow-hidden rounded-xl border-0 shadow-md bg-white m-0!">
+      <div className="flex flex-col gap-4 p-4 h-full">
+        <IonCard className="overflow-hidden h-full rounded-xl border-0 shadow-md bg-white m-0!">
           {newsItem.img && (
             <img
               alt={newsItem.title}
@@ -67,16 +64,25 @@ const NewsDetailPage: React.FC = () => {
             <IonCardTitle className="text-2xl font-bold text-slate-800">
               {newsItem.title}
             </IonCardTitle>
-            <span className="mt-2 text-sm text-slate-500">
-              {new Date(newsItem.createdAt).toLocaleDateString()}
-            </span>
           </IonCardHeader>
           <IonCardContent className="px-4 pb-4">
             {newsItem.description && (
-              <p className="text-base leading-relaxed text-slate-700">
+              <p className="mb-4 text-base leading-relaxed text-slate-700">
                 {newsItem.description}
               </p>
             )}
+            {newsItem.content && Array.isArray(newsItem.content) && (
+              <div className="prose prose-slate max-w-none text-slate-700">
+                <BlocksRenderer
+                  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                  content={newsItem.content as any}
+                />
+              </div>
+            )}
+
+            <div className="mt-4 text-sm text-slate-500">
+              {new Date(newsItem.createdAt).toLocaleDateString()}
+            </div>
           </IonCardContent>
         </IonCard>
       </div>

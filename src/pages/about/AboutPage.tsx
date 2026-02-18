@@ -1,13 +1,16 @@
 import { IonIcon } from "@ionic/react";
 import * as React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+
+import "swiper/css";
 
 import { TEXTS } from "../../shared/config";
+import { cn, getSocialIcon, getStrapiImageUrl } from "../../shared/lib";
 import {
   useAbout,
   useEmployees,
   useSocialNetworks,
 } from "../../shared/lib/hooks";
-import { cn, getSocialIcon, getStrapiImageUrl } from "../../shared/lib";
 import {
   ErrorState,
   LoadingState,
@@ -81,7 +84,9 @@ const AboutPage: React.FC = () => {
         )}
         {aboutData?.numbers && aboutData.numbers.length > 0 && (
           <>
-            <h3 className="mb-2 mt-3 font-bold text-slate-800">{TEXTS.phone}</h3>
+            <h3 className="mb-2 mt-3 font-bold text-slate-800">
+              {TEXTS.phone}
+            </h3>
             {aboutData.numbers.map((number) => (
               <p key={number.id} className="text-sm text-slate-600">
                 {number.phoneNumber}
@@ -124,11 +129,26 @@ const AboutPage: React.FC = () => {
           <h3 className="mb-4 text-xl font-bold text-slate-800">
             {TEXTS.our_people}
           </h3>
-          <div className="flex gap-3 overflow-x-auto pb-2">
+          <Swiper
+            breakpoints={{
+              320: { slidesPerView: 2.5 },
+              640: { slidesPerView: 3.5 },
+              1024: { slidesPerView: 4.5 },
+            }}
+            className="overflow-visible!"
+            grabCursor
+            resistance
+            resistanceRatio={0.85}
+            slidesPerView={2.5}
+            spaceBetween={14}
+            touchEventsTarget="container"
+          >
             {employees.map((member) => (
-              <TeamMemberCard key={member.id} member={member} />
+              <SwiperSlide key={member.id}>
+                <TeamMemberCard member={member} />
+              </SwiperSlide>
             ))}
-          </div>
+          </Swiper>
         </section>
       )}
     </PageWithRefresher>

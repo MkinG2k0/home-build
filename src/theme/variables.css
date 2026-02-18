@@ -18,7 +18,7 @@ ion-content {
 }
 
 ion-content.ion-padding {
-  --padding-bottom: 100px;
+  --padding-bottom: 12px;
   --padding-end: 12px;
   --padding-start: 12px;
   --padding-top: 12px;

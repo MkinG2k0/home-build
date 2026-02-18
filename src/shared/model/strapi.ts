@@ -91,11 +91,25 @@ export interface StrapiVideoBlogAttributes {
 	publishedAt: string | null;
 }
 
+export interface StrapiRichTextNode {
+	type: string;
+	text?: string;
+	children?: StrapiRichTextNode[];
+	level?: number;
+	bold?: boolean;
+	italic?: boolean;
+	underline?: boolean;
+	strikethrough?: boolean;
+	code?: boolean;
+	href?: string;
+	format?: "ordered" | "unordered";
+}
+
 export interface StrapiNewsAttributes {
 	title: string;
 	description: string | null;
 	img: StrapiMedia;
-	content: unknown;
+	content: StrapiRichTextNode[] | string | null;
 	createdAt: string;
 	updatedAt: string;
 	publishedAt: string | null;
