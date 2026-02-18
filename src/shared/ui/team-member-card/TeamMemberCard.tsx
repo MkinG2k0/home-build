@@ -2,11 +2,11 @@ import { IonCard, IonCardContent, IonCardHeader, IonCardTitle } from '@ionic/rea
 import * as React from 'react';
 
 import { cn } from '../../lib';
-import type { TeamMember } from '../../model';
+import type { StrapiEmployee } from '../../model';
 
 export interface TeamMemberCardProps {
   className?: string;
-  member: TeamMember;
+  member: StrapiEmployee;
 }
 
 const TeamMemberCard = React.forwardRef<HTMLIonCardElement, TeamMemberCardProps>(
@@ -18,19 +18,23 @@ const TeamMemberCard = React.forwardRef<HTMLIonCardElement, TeamMemberCardProps>
       )}
       ref={ref}
     >
-      <img
-        alt={member.name}
-        src={member.photo}
-        className="h-28 w-full object-cover"
-      />
+      {member.img && (
+        <img
+          alt={member.fullName || ''}
+          src={member.img.url}
+          className="h-28 w-full object-cover"
+        />
+      )}
       <IonCardHeader className="pb-1 pt-2">
         <IonCardTitle className="text-sm font-bold text-slate-800">
-          {member.name}
+          {member.fullName || ''}
         </IonCardTitle>
       </IonCardHeader>
-      <IonCardContent className="pt-0 text-xs text-slate-500">
-        {member.role}
-      </IonCardContent>
+      {member.post && (
+        <IonCardContent className="pt-0 text-xs text-slate-500">
+          {member.post}
+        </IonCardContent>
+      )}
     </IonCard>
   )
 );

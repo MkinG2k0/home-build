@@ -36,7 +36,7 @@ const ComplexesSwiper: React.FC<ComplexesSwiperProps> = ({complexes}) => (
 		>
 			{complexes?.map((c) => (
 				<SwiperSlide key={c.id}>
-					<IonRouterLink routerDirection="forward" routerLink={`/catalog/${c.id}`}>
+					<IonRouterLink routerDirection="forward" routerLink={`/catalog/${c.documentId}`}>
 						<ComplexCard complex={c}/>
 					</IonRouterLink>
 				</SwiperSlide>

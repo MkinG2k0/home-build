@@ -21,7 +21,7 @@ export const fetchNews = async () => {
 };
 
 export const fetchNewsById = async (id: string) => {
-  const url = getApiUrl(`headline/${id}`);
+  const url = getApiUrl(`headlines/${id}`);
   const response = await axios.get<StrapiSingleResponse<StrapiNewsAttributes>>(
     url,
     {

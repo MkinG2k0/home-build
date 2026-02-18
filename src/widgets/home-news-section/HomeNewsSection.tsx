@@ -22,7 +22,7 @@ const HomeNewsSection: React.FC<HomeNewsSectionProps> = ({ className, news }) =>
           <IonRouterLink
             key={item.id}
             routerDirection="forward"
-            routerLink={`/news/${item.id}`}
+            routerLink={`/news/${item.documentId}`}
           >
             <NewsCard item={item} />
           </IonRouterLink>

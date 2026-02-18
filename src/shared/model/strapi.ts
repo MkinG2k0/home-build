@@ -45,6 +45,7 @@ export interface StrapiMediaArray {
 
 export type  StrapiEntity<T> = {
 	id: number;
+	documentId: string;
 	createdAt: string;
 	updatedAt: string;
 	publishedAt: string | null;
@@ -115,8 +116,68 @@ export interface StrapiMainSliderAttributes {
 	publishedAt: string | null;
 }
 
+export interface StrapiAboutAttributes {
+	address: string | null;
+	description: string | null;
+	img: StrapiMedia | null;
+	numbers: Array<StrapiEntity<StrapiNumberAttributes>> | null;
+	createdAt: string;
+	updatedAt: string;
+	publishedAt: string | null;
+}
+
+export interface StrapiEmployeeAttributes {
+	fullName: string | null;
+	post: string | null;
+	img: StrapiMedia | null;
+	createdAt: string;
+	updatedAt: string;
+	publishedAt: string | null;
+}
+
+export interface StrapiNumberAttributes {
+	name: string | null;
+	phoneNumber: string | null;
+	post: string | null;
+	createdAt: string;
+	updatedAt: string;
+	publishedAt: string | null;
+}
+
+export interface StrapiSocialNetworkAttributes {
+	name: string | null;
+	url: string | null;
+	socialType:
+		| "facebook"
+		| "twitter"
+		| "instagram"
+		| "linkedin"
+		| "youtube"
+		| "tiktok"
+		| "telegram"
+		| "whatsapp"
+		| "vk"
+		| "odnoklassniki"
+		| "snapchat"
+		| "pinterest"
+		| "reddit"
+		| "discord"
+		| "viber"
+		| "wechat"
+		| "line"
+		| "qq"
+		| null;
+	createdAt: string;
+	updatedAt: string;
+	publishedAt: string | null;
+}
+
 export type StrapiResidentialComplex = StrapiEntity<StrapiResidentialComplexAttributes>;
 export type StrapiVideoBlog = StrapiEntity<StrapiVideoBlogAttributes>;
 export type StrapiNews = StrapiEntity<StrapiNewsAttributes>;
 export type StrapiSlide = StrapiEntity<StrapiSlideAttributes>;
 export type StrapiMainSlider = StrapiEntity<StrapiMainSliderAttributes>;
+export type StrapiAbout = StrapiEntity<StrapiAboutAttributes>;
+export type StrapiEmployee = StrapiEntity<StrapiEmployeeAttributes>;
+export type StrapiNumber = StrapiEntity<StrapiNumberAttributes>;
+export type StrapiSocialNetwork = StrapiEntity<StrapiSocialNetworkAttributes>;

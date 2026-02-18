@@ -12,13 +12,13 @@ import {
 } from "../../shared/ui";
 
 const VideoblogDetailPage: React.FC = () => {
-  const { id } = useParams<{ id: string }>();
+  const { id: documentId } = useParams<{ id: string }>();
   const {
     data: video,
     isLoading,
     isError,
     refetch,
-  } = useVideoBlog(id);
+  } = useVideoBlog(documentId);
 
   if (isLoading) {
     return (

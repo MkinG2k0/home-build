@@ -1,5 +1,9 @@
 export type { Complex, NewsItem, TeamMember, VideoItem } from './types'
 export type {
+	StrapiAbout,
+	StrapiAboutAttributes,
+	StrapiEmployee,
+	StrapiEmployeeAttributes,
 	StrapiEntity,
 	StrapiMainSlider,
 	StrapiMainSliderAttributes,
@@ -7,12 +11,16 @@ export type {
 	StrapiMediaArray,
 	StrapiNews,
 	StrapiNewsAttributes,
+	StrapiNumber,
+	StrapiNumberAttributes,
 	StrapiResidentialComplex,
 	StrapiResidentialComplexAttributes,
 	StrapiResponse,
 	StrapiSingleResponse,
 	StrapiSlide,
 	StrapiSlideAttributes,
+	StrapiSocialNetwork,
+	StrapiSocialNetworkAttributes,
 	StrapiVideoBlog,
 	StrapiVideoBlogAttributes,
 } from './strapi'

@@ -16,13 +16,13 @@ import {
 } from "../../shared/ui";
 
 const CatalogDetailPage: React.FC = () => {
-  const { id } = useParams<{ id: string }>();
+  const { id: documentId } = useParams<{ id: string }>();
   const {
     data: complex,
     isLoading,
     isError,
     refetch,
-  } = useResidentialComplex(id);
+  } = useResidentialComplex(documentId);
 
   if (isLoading) {
     return (

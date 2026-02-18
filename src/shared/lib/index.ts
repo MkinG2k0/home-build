@@ -1,5 +1,6 @@
-export { cn } from './cn'
+export { cn } from "./cn";
+export { getSocialIcon } from "./social-icons";
 export {
-	createDefaultQueryOptions,
-	createEmptyStrapiResponse,
-} from './strapi-query-defaults'
+  createDefaultQueryOptions,
+  createEmptyStrapiResponse,
+} from "./strapi-query-defaults";

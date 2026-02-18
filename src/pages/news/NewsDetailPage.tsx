@@ -1,19 +1,45 @@
-import { IonCard, IonCardContent, IonCardHeader, IonCardTitle } from "@ionic/react";
+import {
+  IonCard,
+  IonCardContent,
+  IonCardHeader,
+  IonCardTitle,
+} from "@ionic/react";
 import * as React from "react";
 import { useParams } from "react-router-dom";
 
-import { mockNews } from "../../shared/data/mockData";
-import { PageWithRefresher } from "../../shared/ui";
+import { useNewsById } from "../../shared/lib/hooks";
+import {
+  ErrorState,
+  LoadingState,
+  PageWithRefresher,
+} from "../../shared/ui";
 
 const NewsDetailPage: React.FC = () => {
-  const { id } = useParams<{ id: string }>();
+  const { id: documentId } = useParams<{ id: string }>();
+  const {
+    data: newsResponse,
+    isLoading,
+    isError,
+    refetch,
+  } = useNewsById(documentId);
 
-  const newsItem = React.useMemo(
-    () => mockNews.find((item) => item.id === id),
-    [id],
-  );
+  if (isLoading) {
+    return (
+      <PageWithRefresher>
+        <LoadingState />
+      </PageWithRefresher>
+    );
+  }
 
-  if (!newsItem) {
+  if (isError) {
+    return (
+      <PageWithRefresher>
+        <ErrorState onRetry={() => refetch()} />
+      </PageWithRefresher>
+    );
+  }
+
+  if (!newsResponse?.data) {
     return (
       <PageWithRefresher>
         <div className="flex items-center justify-center p-8">
@@ -23,25 +49,33 @@ const NewsDetailPage: React.FC = () => {
     );
   }
 
+  const newsItem = newsResponse.data;
+
   return (
     <PageWithRefresher>
       <div className="flex flex-col gap-4 p-4">
         <IonCard className="overflow-hidden rounded-xl border-0 shadow-md bg-white m-0!">
-          <img
-            alt={newsItem.title}
-            className="h-64 w-full object-cover"
-            src={newsItem.image}
-          />
+          {newsItem.img && (
+            <img
+              alt={newsItem.title}
+              className="h-64 w-full object-cover"
+              src={newsItem.img.url}
+            />
+          )}
           <IonCardHeader className="px-4 pb-2 pt-4">
             <IonCardTitle className="text-2xl font-bold text-slate-800">
               {newsItem.title}
             </IonCardTitle>
-            <span className="mt-2 text-sm text-slate-500">{newsItem.date}</span>
+            <span className="mt-2 text-sm text-slate-500">
+              {new Date(newsItem.createdAt).toLocaleDateString()}
+            </span>
           </IonCardHeader>
           <IonCardContent className="px-4 pb-4">
-            <p className="text-base leading-relaxed text-slate-700">
-              {newsItem.description}
-            </p>
+            {newsItem.description && (
+              <p className="text-base leading-relaxed text-slate-700">
+                {newsItem.description}
+              </p>
+            )}
           </IonCardContent>
         </IonCard>
       </div>

@@ -41,7 +41,7 @@ const CatalogPage: React.FC = () => {
             <IonCol key={c.id} size="12" sizeMd="6" sizeLg="4">
               <IonRouterLink
                 routerDirection="forward"
-                routerLink={`/catalog/${c.id}`}
+                routerLink={`/catalog/${c.documentId}`}
               >
                 <ComplexCard complex={c} />
               </IonRouterLink>
