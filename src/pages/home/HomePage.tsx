@@ -27,7 +27,6 @@ const HomePage: React.FC = () => {
     refetchNews();
   }, [refetchMainSlider, refetchComplexes, refetchVideos, refetchNews]);
 
-  console.log(mainSlider);
   return (
     <PageWithRefresher onRefresh={handleRefresh}>
       <div className="flex flex-col gap-2">

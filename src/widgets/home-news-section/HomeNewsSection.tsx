@@ -10,9 +10,8 @@ export interface HomeNewsSectionProps {
   news?: StrapiEntity<StrapiNewsAttributes>[];
 }
 
-const HomeNewsSection = React.forwardRef<HTMLElement, HomeNewsSectionProps>(
-  ({ className, news }, ref) => (
-    <section className={className} ref={ref}>
+const HomeNewsSection: React.FC<HomeNewsSectionProps> = ({ className, news }) => (
+    <section className={className}>
       <IonText>
         <h2 className="mb-6 text-3xl! font-bold text-slate-800">
           {TEXTS.news}
@@ -30,8 +29,7 @@ const HomeNewsSection = React.forwardRef<HTMLElement, HomeNewsSectionProps>(
         ))}
       </div>
     </section>
-  ),
-);
+  );
 
 HomeNewsSection.displayName = "HomeNewsSection";
 

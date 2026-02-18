@@ -15,8 +15,7 @@ export interface ContactFormProps {
   className?: string;
 }
 
-const ContactForm = React.forwardRef<HTMLDivElement, ContactFormProps>(
-  ({ className }, ref) => {
+const ContactForm: React.FC<ContactFormProps> = ({ className }) => {
     const {
       formState: { errors },
       handleSubmit,
@@ -41,7 +40,6 @@ const ContactForm = React.forwardRef<HTMLDivElement, ContactFormProps>(
           "contact-form-card relative w-full mt-[18px] mx-auto overflow-hidden rounded-2xl bg-white p-4 shadow-lg sm:max-w-xl sm:p-8",
           className,
         )}
-        ref={ref}
       >
         <h2 className="mb-2 text-2xl font-bold tracking-tight sm:m-0!  text-slate-900 sm:text-3xl">
           {TEXTS.contact_form_title}
@@ -118,8 +116,7 @@ const ContactForm = React.forwardRef<HTMLDivElement, ContactFormProps>(
         </form>
       </div>
     );
-  },
-);
+};
 
 ContactForm.displayName = "ContactForm";
 

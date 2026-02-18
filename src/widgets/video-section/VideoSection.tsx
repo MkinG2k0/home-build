@@ -13,10 +13,7 @@ export interface VideoSectionProps {
 	videos?: StrapiEntity<StrapiVideoBlogAttributes>[];
 }
 
-const VideoSection = React.forwardRef<
-	HTMLTableSectionElement,
-	VideoSectionProps
->(({videos}) => {
+const VideoSection: React.FC<VideoSectionProps> = ({videos}) => {
 	const [selectedVideo, setSelectedVideo] = React.useState<StrapiEntity<StrapiVideoBlogAttributes> | null>(
 		null,
 	)
@@ -59,10 +56,10 @@ const VideoSection = React.forwardRef<
 				isOpen={selectedVideo !== null}
 				video={selectedVideo}
 				onDidDismiss={handleCloseModal}
-			/>
-		</section>
+		/>
+	</section>
 	)
-})
+}
 
 VideoSection.displayName = 'VideoSection'
 

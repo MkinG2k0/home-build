@@ -17,9 +17,8 @@ export interface HeroSwiperProps {
 	slides?: StrapiSlide[];
 }
 
-const HeroSwiper = React.forwardRef<HTMLDivElement, HeroSwiperProps>(
-	({slides}, ref) => (
-		<div ref={ref} className={cn('hero-swiper relative')}>
+const HeroSwiper: React.FC<HeroSwiperProps> = ({slides}) => (
+		<div className={cn('hero-swiper relative')}>
 			<Swiper
 				className="aspect-video w-full overflow-hidden rounded-xl"
 				grabCursor
@@ -53,8 +52,7 @@ const HeroSwiper = React.forwardRef<HTMLDivElement, HeroSwiperProps>(
 				className="hero-swiper-pagination absolute bottom-3 left-0 right-0 z-20 flex justify-center gap-1.5"
 			/>
 		</div>
-	),
-)
+	)
 
 HeroSwiper.displayName = 'HeroSwiper'
 
