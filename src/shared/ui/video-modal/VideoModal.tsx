@@ -11,6 +11,7 @@ import { close } from 'ionicons/icons'
 import * as React from 'react'
 
 import { TEXTS } from '../../config'
+import { getStrapiImageUrl } from '../../lib'
 import type { StrapiEntity, StrapiVideoBlogAttributes } from '../../model'
 
 export interface VideoModalProps {
@@ -41,7 +42,7 @@ const VideoModal: React.FC<VideoModalProps> = ({
 					<img
 						alt={video.title}
 						className="aspect-video w-full object-cover"
-						src={video.img.url}
+						src={getStrapiImageUrl(video.img.url)}
 					/>
 				</div>
 			)}

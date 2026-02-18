@@ -4,7 +4,7 @@ import * as React from "react";
 import { useParams } from "react-router-dom";
 
 import { useVideoBlog } from "../../shared/lib/hooks";
-import { cn } from "../../shared/lib";
+import { cn, getStrapiImageUrl } from "../../shared/lib";
 import {
   ErrorState,
   LoadingState,
@@ -56,7 +56,7 @@ const VideoblogDetailPage: React.FC = () => {
             <img
               alt={videoData.title}
               className="h-80 w-full object-cover"
-              src={videoData.img.url}
+              src={getStrapiImageUrl(videoData.img.url)}
             />
             <div
               className={cn(

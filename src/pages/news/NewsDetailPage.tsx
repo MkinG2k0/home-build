@@ -8,6 +8,7 @@ import * as React from "react";
 import { useParams } from "react-router-dom";
 
 import { useNewsById } from "../../shared/lib/hooks";
+import { getStrapiImageUrl } from "../../shared/lib";
 import {
   ErrorState,
   LoadingState,
@@ -59,7 +60,7 @@ const NewsDetailPage: React.FC = () => {
             <img
               alt={newsItem.title}
               className="h-64 w-full object-cover"
-              src={newsItem.img.url}
+              src={getStrapiImageUrl(newsItem.img.url)}
             />
           )}
           <IonCardHeader className="px-4 pb-2 pt-4">

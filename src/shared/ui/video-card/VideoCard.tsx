@@ -1,7 +1,7 @@
 import { IonCard, IonCardHeader, IonCardTitle } from '@ionic/react'
 import * as React from 'react'
 
-import { cn } from '../../lib'
+import { cn, getStrapiImageUrl } from '../../lib'
 import type { StrapiEntity, StrapiVideoBlogAttributes } from '../../model'
 
 export interface VideoCardProps {
@@ -25,7 +25,7 @@ const VideoCard = React.forwardRef<HTMLIonCardElement, VideoCardProps>(
 				<img
 					alt=""
 					className="size-full object-cover"
-					src={item.img.url}
+					src={getStrapiImageUrl(item.img.url)}
 				/>
 				<div
 					aria-hidden

@@ -4,3 +4,4 @@ export {
   createDefaultQueryOptions,
   createEmptyStrapiResponse,
 } from "./strapi-query-defaults";
+export { getStrapiImageUrl } from "./strapi-image-url";

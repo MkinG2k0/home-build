@@ -6,7 +6,7 @@ import {
 } from '@ionic/react'
 import * as React from 'react'
 
-import { cn } from '../../lib'
+import { cn, getStrapiImageUrl } from '../../lib'
 import type { StrapiEntity, StrapiNewsAttributes } from '../../model'
 
 export interface NewsCardProps {
@@ -26,7 +26,7 @@ const NewsCard = React.forwardRef<HTMLIonCardElement, NewsCardProps>(
 			<div className="flex flex-row">
 				<img
 					alt=""
-					src={item.img.url}
+					src={getStrapiImageUrl(item.img.url)}
 					className="h-36 shrink-0 object-cover w-40"
 				/>
 				<div className="flex flex-1 flex-col">

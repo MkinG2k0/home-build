@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Autoplay, Navigation, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
-import { cn } from '../../shared/lib'
+import { cn, getStrapiImageUrl } from '../../shared/lib'
 
 import 'swiper/css'
 import 'swiper/css/navigation'
@@ -42,7 +42,7 @@ const HeroSwiper: React.FC<HeroSwiperProps> = ({slides}) => (
 						<img
 							alt=""
 							className="size-full object-cover"
-							src={slide.img.url}
+							src={getStrapiImageUrl(slide.img.url)}
 						/>
 					</SwiperSlide>
 				))}

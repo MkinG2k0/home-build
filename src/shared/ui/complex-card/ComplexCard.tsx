@@ -6,7 +6,7 @@ import {
 } from '@ionic/react'
 import * as React from 'react'
 
-import { cn } from '../../lib'
+import { cn, getStrapiImageUrl } from '../../lib'
 import type { StrapiEntity, StrapiResidentialComplexAttributes } from '../../model'
 
 export interface ComplexCardProps {
@@ -25,8 +25,8 @@ const ComplexCard = React.forwardRef<HTMLIonCardElement, ComplexCardProps>(
 			ref={ref}
 		>
 			<img
-				alt={complex.img.url}
-				src={complex.img.url}
+				alt={getStrapiImageUrl(complex.img.url)}
+				src={getStrapiImageUrl(complex.img.url)}
 				className="h-32 w-full object-cover"
 			/>
 			<IonCardHeader className="px-4 pb-3 pt-1">

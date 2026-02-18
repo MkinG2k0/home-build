@@ -9,6 +9,7 @@ import * as React from "react";
 import { useParams } from "react-router-dom";
 
 import { useResidentialComplex } from "../../shared/lib/hooks";
+import { getStrapiImageUrl } from "../../shared/lib";
 import {
   ErrorState,
   LoadingState,
@@ -59,7 +60,7 @@ const CatalogDetailPage: React.FC = () => {
           <img
             alt={complexData.title}
             className="h-64 w-full object-cover"
-            src={complexData.img.url}
+            src={getStrapiImageUrl(complexData.img.url)}
           />
           <IonCardHeader className="px-4 pb-2 pt-4">
             <IonCardTitle className="text-2xl font-bold text-slate-800">

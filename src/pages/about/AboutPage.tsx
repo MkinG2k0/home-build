@@ -7,7 +7,7 @@ import {
   useEmployees,
   useSocialNetworks,
 } from "../../shared/lib/hooks";
-import { cn, getSocialIcon } from "../../shared/lib";
+import { cn, getSocialIcon, getStrapiImageUrl } from "../../shared/lib";
 import {
   ErrorState,
   LoadingState,
@@ -69,7 +69,7 @@ const AboutPage: React.FC = () => {
         <img
           alt="Офис"
           className="mb-6 h-52 w-full rounded-2xl object-cover shadow-md"
-          src={officeImage}
+          src={getStrapiImageUrl(officeImage)}
         />
       )}
       <section className="mb-6">

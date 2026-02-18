@@ -1,7 +1,7 @@
 import { IonCard, IonCardContent, IonCardHeader, IonCardTitle } from '@ionic/react';
 import * as React from 'react';
 
-import { cn } from '../../lib';
+import { cn, getStrapiImageUrl } from '../../lib';
 import type { StrapiEmployee } from '../../model';
 
 export interface TeamMemberCardProps {
@@ -21,7 +21,7 @@ const TeamMemberCard = React.forwardRef<HTMLIonCardElement, TeamMemberCardProps>
       {member.img && (
         <img
           alt={member.fullName || ''}
-          src={member.img.url}
+          src={getStrapiImageUrl(member.img.url)}
           className="h-28 w-full object-cover"
         />
       )}
