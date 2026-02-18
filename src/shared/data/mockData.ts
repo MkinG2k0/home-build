@@ -1,7 +1,8 @@
 import type { Complex, NewsItem, TeamMember, VideoItem } from "../model";
 
 export const MOCK_IMAGES = {
-  building: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=400",
+  building:
+    "https://img.freepik.com/premium-photo/house-is-market-1-5-million_1221953-13825.jpg?semt=ais_hybrid&w=740",
   news: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=400",
   office: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800",
   person: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200",
