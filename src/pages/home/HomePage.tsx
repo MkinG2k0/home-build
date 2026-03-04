@@ -20,11 +20,13 @@ const HomePage: React.FC = () => {
   const { data: videos, refetch: refetchVideos } = useVideoBlogs();
   const { data: news, refetch: refetchNews } = useNews();
 
-  const handleRefresh = React.useCallback(() => {
-    refetchMainSlider();
-    refetchComplexes();
-    refetchVideos();
-    refetchNews();
+  const handleRefresh = React.useCallback(async () => {
+    await Promise.allSettled([
+      refetchMainSlider(),
+      refetchComplexes(),
+      refetchVideos(),
+      refetchNews(),
+    ]);
   }, [refetchMainSlider, refetchComplexes, refetchVideos, refetchNews]);
 
   const newsSlice = news?.slice(0, 4) ?? [];
