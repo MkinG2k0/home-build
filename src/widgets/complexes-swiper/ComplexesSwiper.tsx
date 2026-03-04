@@ -46,12 +46,14 @@ const ComplexesSwiperSkeleton: React.FC = () => (
 export interface ComplexesSwiperProps {
   className?: string;
   complexes?: StrapiEntity<StrapiResidentialComplexAttributes>[];
+  isLoading?: boolean;
 }
 
-const ComplexesSwiper: React.FC<ComplexesSwiperProps> = ({ complexes }) => {
-  const isLoading = complexes === undefined || complexes.length === 0;
-
-  if (isLoading) {
+const ComplexesSwiper: React.FC<ComplexesSwiperProps> = ({
+  complexes,
+  isLoading,
+}) => {
+  if (isLoading || !complexes) {
     return <ComplexesSwiperSkeleton />;
   }
 

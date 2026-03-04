@@ -36,15 +36,15 @@ const HomeNewsSectionSkeleton: React.FC<{ className?: string }> = ({
 export interface HomeNewsSectionProps {
   className?: string;
   news?: StrapiEntity<StrapiNewsAttributes>[];
+  isLoading?: boolean;
 }
 
 const HomeNewsSection: React.FC<HomeNewsSectionProps> = ({
   className,
   news,
+  isLoading,
 }) => {
-  const isLoading = news === undefined || news.length === 0;
-
-  if (isLoading) {
+  if (isLoading || !news) {
     return <HomeNewsSectionSkeleton className={className} />;
   }
 

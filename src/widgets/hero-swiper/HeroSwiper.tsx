@@ -9,10 +9,9 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { StrapiSlide } from "../../shared/model";
 
-const SKELETON_SLIDES_COUNT = 1;
-
 export interface HeroSwiperProps {
   slides?: StrapiSlide[];
+  isLoading?: boolean;
 }
 
 const HeroSwiperSkeleton: React.FC = () => (
@@ -28,10 +27,10 @@ const HeroSwiperSkeleton: React.FC = () => (
   </div>
 );
 
-const HeroSwiper: React.FC<HeroSwiperProps> = ({ slides }) => {
-  const isLoading = slides === undefined || slides.length === 0;
+const SKELETON_SLIDES_COUNT = 1;
 
-  if (isLoading) {
+const HeroSwiper: React.FC<HeroSwiperProps> = ({ slides, isLoading }) => {
+  if (isLoading || !slides) {
     return (
       <div className={cn("hero-swiper relative")}>
         <HeroSwiperSkeleton />

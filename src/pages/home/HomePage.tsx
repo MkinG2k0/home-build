@@ -14,11 +14,26 @@ import { HomeNewsSection } from "../../widgets/home-news-section";
 import { VideoSection } from "../../widgets/video-section";
 
 const HomePage: React.FC = () => {
-  const { data: mainSlider, refetch: refetchMainSlider } = useMainSlider();
-  const { data: complexes, refetch: refetchComplexes } =
-    useResidentialComplexes();
-  const { data: videos, refetch: refetchVideos } = useVideoBlogs();
-  const { data: news, refetch: refetchNews } = useNews();
+  const {
+    data: mainSlider,
+    isLoading: isMainSliderLoading,
+    refetch: refetchMainSlider,
+  } = useMainSlider();
+  const {
+    data: complexes,
+    isLoading: isComplexesLoading,
+    refetch: refetchComplexes,
+  } = useResidentialComplexes();
+  const {
+    data: videos,
+    isLoading: isVideosLoading,
+    refetch: refetchVideos,
+  } = useVideoBlogs();
+  const {
+    data: news,
+    isLoading: isNewsLoading,
+    refetch: refetchNews,
+  } = useNews();
 
   const handleRefresh = React.useCallback(async () => {
     await Promise.allSettled([
@@ -34,13 +49,13 @@ const HomePage: React.FC = () => {
   return (
     <PageWithRefresher onRefresh={handleRefresh}>
       <div className="flex flex-col gap-2 pb-24">
-        <HeroSwiper slides={mainSlider} />
+        <HeroSwiper isLoading={isMainSliderLoading} slides={mainSlider} />
 
-        <ComplexesSwiper complexes={complexes} />
+        <ComplexesSwiper isLoading={isComplexesLoading} complexes={complexes} />
 
-        <HomeNewsSection news={newsSlice} />
+        <HomeNewsSection isLoading={isNewsLoading} news={newsSlice} />
 
-        <VideoSection videos={videos} />
+        <VideoSection isLoading={isVideosLoading} videos={videos} />
 
         <ContactForm />
       </div>

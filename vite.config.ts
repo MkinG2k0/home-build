@@ -15,7 +15,6 @@ export default defineConfig({
 		tailwindcss(),
 		mkcert(),
 		VitePWA({
-			dev: false,
 			filename: 'sw.ts',
 			manifest: false,
 			registerType: 'prompt',
@@ -26,9 +25,7 @@ export default defineConfig({
 			},
 		}),
 	],
-	server: {
-		https: true,
-	},
+	server: {},
 	resolve: {
 		dedupe: ['react', 'react-dom'],
 	},
